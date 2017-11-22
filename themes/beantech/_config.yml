@@ -5,3 +5,15 @@
 # https://github.com/chriskempson/tomorrow-theme
 # night yilia - https://github.com/litten/hexo-theme-yilia
 highlight_theme: night
+#mathjax:
+#  enable: true
+#  per_page: false
+#  cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+#katex:
+#    css: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"
+#    js: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"
+#    config: {
+#      throwOnError: false,
+#      errorColor: "#cc0000"
+#    }

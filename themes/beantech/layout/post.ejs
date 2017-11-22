@@ -4,7 +4,7 @@ layout: layout
 <!-- Modify by Yu-Hsuan Yen -->
 
 <!-- Post Content -->
-<article>
+<article class="at_img">
     <div class="container">
         <div class="row">
 
@@ -22,12 +22,12 @@ layout: layout
                 <ul class="pager">
                     <% if (page.prev){ %>
                         <li class="previous">
-                            <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; Previous Post</a>
+                            <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; 前一章</a>
                         </li>
                     <% } %>
                     <% if (page.next){ %>
                         <li class="next">
-                            <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>">Next Post &rarr;</a>
+                            <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>">下一章 &rarr;</a>
                         </li>
                     <% } %>
                 </ul>
@@ -90,7 +90,7 @@ layout: layout
                 <% if(config['featured-tags']) { %>
                 <section>
                     <!-- no hr -->
-                    <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
+                    <h5><a href="<%= config.root %>tags/">分类</a></h5>
                     <div class="tags">
                        <% page.tags.forEach(function(tag){ %>
                           <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
@@ -102,7 +102,7 @@ layout: layout
                 <!-- Friends Blog -->
                 <% if(config.friends) { %>
                 <hr>
-                <h5>FRIENDS</h5>
+                <h5>友情链接</h5>
                 <ul class="list-inline">
 
                     <% config.friends.forEach(function(friend){ %>
@@ -133,23 +133,6 @@ layout: layout
     })();
 </script>
 <!-- 多说公共JS代码 end -->
-<% } %>
-
-<% if(config['disqus_username']) { %>
-<!-- disqus embedded js code start (one page only need to embed once) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "<%= config['disqus_username'] %>";
-    var disqus_identifier = "<%= page.permalink %>";
-    var disqus_url = "<%= page.permalink %>";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus embedded js code start end -->
 <% } %>
 
 
@@ -188,3 +171,4 @@ layout: layout
     }
 </style>
 <% } %>
+
