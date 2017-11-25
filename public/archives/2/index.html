@@ -134,13 +134,13 @@
                     
                         
                         <li>
-                            <a href="/about/">关于</a>
+                            <a href="/archive/">文章</a>
                         </li>
                         
                     
                         
                         <li>
-                            <a href="/archive/">文章</a>
+                            <a href="/about/">关于</a>
                         </li>
                         
                     
@@ -208,24 +208,20 @@
 
 <div class="post-preview">
 
-    <a href="/2016/02/22/chapter-01-getting-started/">
+    <a href="/2016/02/22/chapter-02-sharing-and-multimedia/">
         <h2 class="post-title">
-            chapter-01-getting-started
+            chapter-02-sharing-and-multimedia
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             chapter-01-getting-started
-Tags: Training-for-Android-developers
+             chapter-02-sharing-and-multimedia
+Tags:Training-for-Android-developers
 
-这是一个读 google的 android 教程的整理。仅以记录，不求误人。卽此而已。
- 关于 IDE
-欲善其事必利其器，在工具的对比和选择时间耗费整整用了一天。不过仍有磨刀不费砍柴功的感觉。直接上结论。
-
-
-eclipse pass ,其因不再赘述。
-IDE......
+ 分享
+ 分享简单的数据
+在构建一个intent时，必须指定这个intent需要触发的actions。Android定义了一些actions，比如ACTION_SEND，该action表明该intent用于从一个activity发送数据到另外一个a......
         </div>
     </a>
     
@@ -245,20 +241,20 @@ IDE......
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-07-包和引入/">
+    <a href="/2015/06/22/Chapter-06-对象/">
         <h2 class="post-title">
-            Chapter-07-包和引入
+            Chapter-06-对象
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-07-包和引入
-包 引入 import package
+             Chapter-06-对象
+对象 object
 
- 包
-scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
-1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
+ 单例对象
+scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
+123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
         </div>
     </a>
     
@@ -451,25 +447,20 @@ a 标识符 b
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-05-类/">
+    <a href="/2015/06/22/Chapter-07-包和引入/">
         <h2 class="post-title">
-            Chapter-05-类
+            Chapter-07-包和引入
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-05-类
-类 class
+             Chapter-07-包和引入
+包 引入 import package
 
- 简单类和无参方法
-scala中的类简单的和java相似，主要设计和习惯区别是：
-
-scala类中的方法默认为public的
-字段必须初始化
-类只有public的，所以不声明public关键字了（经常一个scala源文件会包含很多个类）
-
-123456789class Counter &#123;    private var value = 0......
+ 包
+scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
+1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
         </div>
     </a>
     
@@ -489,20 +480,25 @@ scala类中的方法默认为public的
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-06-对象/">
+    <a href="/2015/06/22/Chapter-05-类/">
         <h2 class="post-title">
-            Chapter-06-对象
+            Chapter-05-类
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-06-对象
-对象 object
+             Chapter-05-类
+类 class
 
- 单例对象
-scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
-123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
+ 简单类和无参方法
+scala中的类简单的和java相似，主要设计和习惯区别是：
+
+scala类中的方法默认为public的
+字段必须初始化
+类只有public的，所以不声明public关键字了（经常一个scala源文件会包含很多个类）
+
+123456789class Counter &#123;    private var value = 0......
         </div>
     </a>
     
