@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="汝还白汝天子，我承人乏，为中国所推，已为帝矣。">
+    <meta name="keyword"  content="李永会,李郞小汇,机器学习,移动端,GPU">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          chapter-04-best-practices-for-memory - 李郞小汇
+        
+    </title>
+
+    <link rel="canonical" href="http://www.allonli.com/2016/02/22/chapter-04-best-practices-for-memory/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--allonli add-->
+    <style type=text/css>
+	.at_img img{max-width:70%;}
+    </style>
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- math katex Header -->
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/06.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#android" title="android">android</a>
+                            
+                        </div>
+                        <h1>chapter-04-best-practices-for-memory</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by allon li on
+                            2016-02-22
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">李郞小汇</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+
+                    
+                        
+                        <li>
+                            <a href="/about/">关于</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">文章</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">分类</a>
+                        </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article class="at_img">
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="chapter-04-best-practices-for-memory"> chapter-04-best-practices-for-memory</span></h1>
+<p>Tags:Training-for-Android-developers</p>
+<hr>
+<h2><span id="管理内存"> 管理内存</span></h2>
+<p>Android没有使用Linux中的swap的文件交换区方式。但是还是使用了纯内存paging（以下称内存页）和mmapped（文件内存映射）。为了满足每个app对RAM的需要，Android在进程间共享内存页。</p>
+<h3><span id="共享内存"> 共享内存</span></h3>
+<p><strong>通常遵循下面方式实现：</strong></p>
+<blockquote>
+<ul>
+<li>每一个app的进程都是从一个被叫做Zygote的进程中fork出来的（Android也是基于COW，所以性能还不错）。那么理所当然的继承了父进程内存页。</li>
+</ul>
+</blockquote>
+<p>具体过程是：</p>
+<pre><code>1、开机后系统会通过init.rc配置（例如小米4：service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server）先拉起Zygote进程
+2、这个进程启动后自动加载android框架代码和资源（例如activity themes）
+3、然后再fork出具体的app进程，那这样一来就可以让所有的android app进程共享框架load的内存资源。
+</code></pre>
+<p>大多数静态数据被映射到进程中。这样让的数据在进程间共享。</p>
+<pre><code>静态数据包括：
+1、Dalvik 代码 (放在一个预链接好的.odex 文件中以便直接mapping)
+2、App Resources(它们被组织成资源映射表的结构，然后把APK中的文件做对齐的操作来，以便更容易做内存映射）
+3、native代码如.so文件。
+</code></pre>
+<blockquote>
+<ul>
+<li>用户显示的分配内存如：ashmem pmem gralloc等方式。</li>
+</ul>
+</blockquote>
+<p>如要查看分析共享内存：<br>
+<a href="http://developer.android.com/tools/debugging/debugging-memory.html" target="_blank" rel="noopener">http://developer.android.com/tools/debugging/debugging-memory.html</a></p>
+<h3><span id="android系统对内存的分配和回收"> Android系统对内存的分配和回收</span></h3>
+<blockquote>
+<ul>
+<li>Android虚拟机和java的结构非常类似，主要对象的存储也是在堆上。(不过Android是跑在别人的手机里。所以你不能像服务器随便设置虚拟机堆的各项参数。虚拟机又不是咱们家的，当然不可以这么干)。系统会限制单个应用的堆内存大小。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>heap的逻辑大小和实际使用的物理内存大小是不相同的。假设共享内存大小是10M，一共有20个Process在共享使用，根据权重，可能认为其中有0.3M才是你的进程所使用的大小。这个实际的值叫PSS（Proportional Set Size）。所以我们只需要查看Total Pss的值就可以知道该应用运行时所占的内存的大小。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>系统不会做内存碎片整理，android只会清一下堆的未端不使用的内存。虽然不做碎片整理，但是它会在GC之后，挑出整块不使用的内存页干掉。不过，如果是共有的，很小的内存就不行了。</li>
+</ul>
+</blockquote>
+<p>adb shell dumpsys meminfo com.baidu.vsfinance -d</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">Applications Memory Usage (kB):</span><br><span class="line">Uptime: 18460072 Realtime: 105595846</span><br><span class="line"></span><br><span class="line">** MEMINFO <span class="keyword">in</span> pid 19441 [com.baidu.vsfinance] **</span><br><span class="line">                   Pss  Private  Private  Swapped     Heap     Heap     Heap</span><br><span class="line">                 Total    Dirty    Clean    Dirty     Size    Alloc     Free</span><br><span class="line">                ------   ------   ------   ------   ------   ------   ------</span><br><span class="line">  Native Heap       24       24        0        0    15920     7033      502</span><br><span class="line">  Dalvik Heap    20988    20604        0        0    42724    40882     1842</span><br><span class="line"> Dalvik Other     3404     3352        0        0                           </span><br><span class="line">        Stack      192      192        0        0                           </span><br><span class="line">    Other dev    12400     9444        4        0                           </span><br><span class="line">     .so mmap     2527     1436      524        0                           </span><br><span class="line">    .jar mmap        4        0        4        0                           </span><br><span class="line">    .apk mmap      344        0      228        0                           </span><br><span class="line">    .ttf mmap      390        0      136        0                           </span><br><span class="line">    .dex mmap     3778       72     3324        0                           </span><br><span class="line">   Other mmap       62       12       36        0                           </span><br><span class="line">      Unknown     3843     3840        0        0                           </span><br><span class="line">        TOTAL    47956    38976     4256        0    58644    47915     2344</span><br><span class="line"> </span><br><span class="line"> Objects</span><br><span class="line">               Views:      263         ViewRootImpl:        6</span><br><span class="line">         AppContexts:        6           Activities:        3</span><br><span class="line">              Assets:        5        AssetManagers:        5</span><br><span class="line">       Local Binders:       19        Proxy Binders:       25</span><br><span class="line">    Death Recipients:        1</span><br><span class="line">     OpenSSL Sockets:        0</span><br><span class="line"> </span><br><span class="line"> SQL</span><br><span class="line">         MEMORY_USED:      291</span><br><span class="line">  PAGECACHE_OVERFLOW:       77          MALLOC_SIZE:       62</span><br><span class="line"> </span><br><span class="line"> DATABASES</span><br><span class="line">      pgsz     dbsz   Lookaside(b)          cache  Dbname</span><br><span class="line">         4       32             45         2/17/3  /data/data/com.baidu.vsfinance/databases/afinal.db</span><br></pre></td></tr></table></figure>
+<h3><span id="api获取内存相关信息"> API获取内存相关信息</span></h3>
+<p>除了使用dumpsys命令外，也可以使用ActivityManager类的查看各种内存信息，这个方式好在它可以实时查，另外使用getMemoryClass()可以查看当前系统对单个app的最大内存限制。</p>
+<blockquote>
+<p>在一些特殊的情景下，可以通过在manifest的application标签下添加largeHeap=true的属性来声明一个更大的heap空间。如果这样做你可以通过getLargeMemoryClass())来获取到一个更大的heap size。<br>
+不要轻易的因为你需要使用大量的内存而去请求一个大的heap size。只有当你清楚的知道哪里会使用大量的内存并且为什么这些内存必须被保留时才去使用large heap。<br>
+另外, large heap并不一定能够获取到更大的heap。在某些有严格限制的机器上，large heap的大小和通常的heap size是一样的。因此即使你申请了large heap，你还是应该通过执行getMemoryClass()来检查实际获取到的heap大小。</p>
+</blockquote>
+<p>ComponentCallbacks2类有一个onTrimMemory(int)回调，接受的int值表示现在的内存状态。比如ComponentCallbacks2.TRIM_MEMORY_RUNNING_MODERATE表示app正在运行并且不会被列为可杀死的。但是设备此时正运行于低内存状态下，系统开始触发杀死LRU Cache中的Process的机制。<br>
+具体还有很多值，都在：<a href="http://developer.android.com/reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)" target="_blank" rel="noopener">http://developer.android.com/reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)</a></p>
+<p>因为android的内存不像java一样舒爽，所以有些内存数据也要适当关注一下：</p>
+<p>Enums often require more than twice as much memory as static constants. You should strictly avoid using enums on Android.<br>
+Every class in Java (including anonymous inner classes) uses about 500 bytes of code.<br>
+Every class instance has 12-16 bytes of RAM overhead.<br>
+Putting a single entry into a HashMap requires the allocation of an additional entry object that takes 32 bytes.</p>
+<blockquote>
+<ul>
+<li>Enums的内存消耗通常是static constants的2倍。你应该尽量避免在Android上使用enums。</li>
+<li>在Java中的每一个类(包括匿名内部类)都会使用大概500 bytes。</li>
+<li>每一个类的实例花销至少是12-16 bytes。</li>
+<li>往HashMap添加一个entry需要额一个额外占用的32 bytes的entry对象。</li>
+</ul>
+</blockquote>
+<p>Often, developers use abstractions simply as a “good programming practice,” because abstractions can improve code flexibility and maintenance. However, abstractions come at a significant cost: generally they require a fair amount more code that needs to be executed, requiring more time and more RAM for that code to be mapped into memory. So if your abstractions aren’t supplying a significant benefit, you should avoid them.</p>
+<blockquote>
+<ul>
+<li>更不爽的是，在google文档中居然还明确指出，没有特别明显的优化效果，不要使用抽象。这在设计时不免可惜。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>为了降低内存占用，将部分内容放在服务端，同时google推荐使用他们的“homebrew(家酿)”产品protobuf的微缩版nano protobuf。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>为了节省资源，google也不建议你使用类似spring的诸如Guice、RoboGuice等依赖注入框架（还有天理吗）。</li>
+</ul>
+</blockquote>
+<p>每次限定使用时，google都非常open的告诉你这个东西好。然后跟一个but:它耗资源。然并卵！</p>
+<blockquote>
+<ul>
+<li>ProGuard能够通过移除不需要的代码，重命名类，域与方法等方对代码进行压缩，优化与混淆。使用ProGuard可以使得你的代码更加紧凑，这样能够使用更少mapped代码所需要的RAM。<a href="http://developer.android.com/tools/help/proguard.html" target="_blank" rel="noopener">http://developer.android.com/tools/help/proguard.html</a></li>
+</ul>
+</blockquote>
+<p>zipalign这个东西可以帮你的apk做对齐，这个进内存的效率提升和空间节省都会有的。而且有些图片儿啥的不能做内存mapped。必须要对齐一下。而且Google Play不接受没有经过zipalign的APK。<br>
+<a href="http://developer.android.com/tools/help/zipalign.html" target="_blank" rel="noopener">http://developer.android.com/tools/help/zipalign.html</a></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2016/02/22/chapter-03-bitmap-and-background-threads/" data-toggle="tooltip" data-placement="top" title="chapter-03-bitmap-and-background-threads">&larr; 上一篇</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2015/06/22/Chapter-09-文件和正则表达式/" data-toggle="tooltip" data-placement="top" title="Chapter-09-文件和正则表达式">下一篇 &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"> chapter-04-best-practices-for-memory</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"> 管理内存</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text"> 共享内存</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text"> Android系统对内存的分配和回收</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text"> API获取内存相关信息</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">分类</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#android" title="android">android</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>友情链接</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://allonli.github.io" target="_blank">blogs</a></li>
+                    
+                        <li><a href="http://www.allonli.com" target="_blank">allonli.com</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/allon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/allon517">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/allonli">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; allon li 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.allonli.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'www.allonli.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://www.allonli.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

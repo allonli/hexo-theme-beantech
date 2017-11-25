@@ -10,7 +10,21 @@
 
     <url>
         <loc>http://www.allonli.com/tags/%E6%95%B0%E5%AD%A6/</loc>
-        <lastmod>2017-11-22T10:40:51.142Z</lastmod>
+        <lastmod>2017-11-23T10:50:20.475Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.allonli.com/tags/scala/</loc>
+        <lastmod>2017-11-25T06:28:50.497Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.allonli.com/tags/android/</loc>
+        <lastmod>2017-11-25T06:38:21.372Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

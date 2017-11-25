@@ -1,5 +1,5 @@
-prev: Older Posts
-next: Newer Posts
-comment: Comments
-archive_a: Archives
-archive_b: "Archives: %s"
+prev: 更早
+next: 更新
+comment: 评论
+archive_a: 文章
+archive_b: "文章: %s"
