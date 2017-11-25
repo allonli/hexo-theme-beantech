@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/css/beantech.min.css">
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
     
     <!-- Pygments Highlight CSS -->
     <link rel="stylesheet" href="/css/highlight.css">
@@ -75,7 +75,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/home-bg-o.png') 
+            background-image: url('/img/14.jpg') 
             /*config*/
         
     }
@@ -208,6 +208,72 @@
 
 <div class="post-preview">
 
+    <a href="/2016/02/22/chapter-02-sharing-and-multimedia/">
+        <h2 class="post-title">
+            chapter-02-sharing-and-multimedia
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             chapter-02-sharing-and-multimedia
+Tags:Training-for-Android-developers
+
+ 分享
+ 分享简单的数据
+在构建一个intent时，必须指定这个intent需要触发的actions。Android定义了一些actions，比如ACTION_SEND，该action表明该intent用于从一个activity发送数据到另外一个a......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2016-02-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#android" title="android">android</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/Chapter-06-对象/">
+        <h2 class="post-title">
+            Chapter-06-对象
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-06-对象
+对象 object
+
+ 单例对象
+scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
+123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2015/06/22/Chapter-02-control-structures-and-functions/">
         <h2 class="post-title">
             Chapter-02-control-structures-and-functions
@@ -274,19 +340,19 @@ scala......
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-03-working-with-arrays/">
+    <a href="/2015/06/22/Chapter-09-文件和正则表达式/">
         <h2 class="post-title">
-            Chapter-03-working-with-arrays
+            Chapter-09-文件和正则表达式
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-03-working-with-arrays
-数组
+             Chapter-09-文件和正则表达式
+file 文件 正则表达式 Regular expression
 
- 定长数组
-12345678val nums = new Array[Int](10)//初始化10整数的数组，所有元素初始化为0val strs = new Array[String](10)//10个值为nullval s = Array("Hello", "Allon")//Array对象的apply方法s(0) ......
+ 读取行
+123456import scala.io.Sourceval source = Source.fromFile("myfile.txt", "UTF-8")val iterator = source.getLines //获取Iterator[String]for(l &......
         </div>
     </a>
     
@@ -306,20 +372,21 @@ scala......
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-04-Map和元组/">
+    <a href="/2015/06/22/Chapter-08-继承/">
         <h2 class="post-title">
-            Chapter-04-Map和元组
+            Chapter-08-继承
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-04-Map和元组
-Map 映射 元组
+             Chapter-08-继承
+extends 继承
 
- 创建Map并取值
-scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
-12345val map = Map("Allon" -&gt; 29, "Jerry" -&gt; 18, "Karen" -&gt; 54 )map("Allon")//返回29map("Allon") = 30//会报错，因为这个Map默......
+ 继承类
+123class Employee extends Person &#123;    var salary = 0.0&#125;
+和java不同的是，java中的final是不可变的。而scala中的final var是可以修改的，只是不能被继承。final val才相当于java的final。
+123456789class ......
         </div>
     </a>
     
@@ -339,20 +406,61 @@ scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-06-对象/">
+    <a href="/2015/06/22/Chapter-11-operators/">
         <h2 class="post-title">
-            Chapter-06-对象
+            Chapter-11-operators
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-06-对象
-对象 object
+             Chapter-11-operators
+操作符
 
- 单例对象
-scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
-123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
+ 标识符和操作符
+变量、函数、类等名称统称为标识符。在scala中的标识符，一般不跟关键字冲突，几乎所有的Unicode字符都可以。
+在scala中，很多时候操作符实际上是函数名，所以标识符和操作符这两个概念差别不大。
+常见的赋值操作符
+a 操作符= b
+等价于： a = a 操作符 b
+
+
+ infix（中置）
+a 标识符 b
+如 1 ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/Chapter-07-包和引入/">
+        <h2 class="post-title">
+            Chapter-07-包和引入
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-07-包和引入
+包 引入 import package
+
+ 包
+scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
+1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
         </div>
     </a>
     
@@ -410,86 +518,19 @@ scala类中的方法默认为public的
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-07-包和引入/">
+    <a href="/2015/06/22/Chapter-03-working-with-arrays/">
         <h2 class="post-title">
-            Chapter-07-包和引入
+            Chapter-03-working-with-arrays
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-07-包和引入
-包 引入 import package
+             Chapter-03-working-with-arrays
+数组
 
- 包
-scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
-1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/Chapter-08-继承/">
-        <h2 class="post-title">
-            Chapter-08-继承
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-08-继承
-extends 继承
-
- 继承类
-123class Employee extends Person &#123;    var salary = 0.0&#125;
-和java不同的是，java中的final是不可变的。而scala中的final var是可以修改的，只是不能被继承。final val才相当于java的final。
-123456789class ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/Chapter-09-文件和正则表达式/">
-        <h2 class="post-title">
-            Chapter-09-文件和正则表达式
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-09-文件和正则表达式
-file 文件 正则表达式 Regular expression
-
- 读取行
-123456import scala.io.Sourceval source = Source.fromFile("myfile.txt", "UTF-8")val iterator = source.getLines //获取Iterator[String]for(l &......
+ 定长数组
+12345678val nums = new Array[Int](10)//初始化10整数的数组，所有元素初始化为0val strs = new Array[String](10)//10个值为nullval s = Array("Hello", "Allon")//Array对象的apply方法s(0) ......
         </div>
     </a>
     
@@ -517,6 +558,10 @@ file 文件 正则表达式 Regular expression
             <a href="/">&larr; 更新</a>
         </li>
     
+    
+        <li class="next">
+            <a href="/archives/3/">更早 &rarr;</a>
+        </li>
     
 </ul>
 
@@ -549,6 +594,10 @@ file 文件 正则表达式 Regular expression
         
             
             <a href="/tags/#书法" title="书法" rel="2">书法</a>
+            
+        
+            
+            <a href="/tags/#深入理解计算机系统" title="深入理解计算机系统" rel="3">深入理解计算机系统</a>
             
         
             
@@ -627,11 +676,11 @@ file 文件 正则表达式 Regular expression
     <ul>
       
         <li>
-          <a href="/2017/11/22/书法基础理论/">书法基础理论</a>
+          <a href="/2017/11/22/书法工具/">书法工具</a>
         </li>
       
         <li>
-          <a href="/2017/11/22/书法工具/">书法工具</a>
+          <a href="/2017/11/22/书法基础理论/">书法基础理论</a>
         </li>
       
         <li>
@@ -643,7 +692,7 @@ file 文件 正则表达式 Regular expression
         </li>
       
         <li>
-          <a href="/2016/02/22/chapter-01-getting-started/">chapter-01-getting-started</a>
+          <a href="/2017/02/22/第03章 程序的机器级表示/">第03章 程序的机器级表示</a>
         </li>
       
     </ul>
@@ -670,7 +719,7 @@ file 文件 正则表达式 Regular expression
         
     <h5>文章</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">11</span></li></ul>
     </div>
 
 
@@ -741,11 +790,11 @@ file 文件 正则表达式 Regular expression
                     <span style="display: inline-block; margin: 0 5px;">
                         <i class="fa fa-heart"></i>
                     </span> 
-                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    re-Ported by <a href="http://allonli.com">AllonLi</a> | 
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                        src="https://ghbtns.com/github-btn.html?user=allonli&repo=hexo-theme-beantech&type=star&count=false" >
                     </iframe>
                 </p>
             </div>
@@ -843,7 +892,6 @@ file 文件 正则表达式 Regular expression
 
 
 
-	<a id="rocket" href="#top" class=""></a>
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->

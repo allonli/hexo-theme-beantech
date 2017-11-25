@@ -7,7 +7,7 @@ title: 李郞小汇
 subtitle:  
 author: allon li
 language: zh-CN 
-timezone: Asia/Shanghai
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -23,7 +23,7 @@ SEOTitle: 李郞小汇
 email: allon6@163.com
 description: "汝还白汝天子，我承人乏，为中国所推，已为帝矣。"
 keyword: "李永会,李郞小汇,机器学习,移动端,GPU"
-header-img: img/header_img/home-bg-o.png
+header-img: img/14.jpg
 signature: false #show signature
 signature-img: img/signature/BeanTechSign-white.png 
 
