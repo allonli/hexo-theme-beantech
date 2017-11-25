@@ -75,7 +75,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/14.jpg') 
+            background-image: url('/img/19.jpg') 
             /*config*/
         
     }
@@ -208,20 +208,24 @@
 
 <div class="post-preview">
 
-    <a href="/2016/02/22/chapter-02-sharing-and-multimedia/">
+    <a href="/2016/02/22/chapter-01-getting-started/">
         <h2 class="post-title">
-            chapter-02-sharing-and-multimedia
+            chapter-01-getting-started
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             chapter-02-sharing-and-multimedia
-Tags:Training-for-Android-developers
+             chapter-01-getting-started
+Tags: Training-for-Android-developers
 
- 分享
- 分享简单的数据
-在构建一个intent时，必须指定这个intent需要触发的actions。Android定义了一些actions，比如ACTION_SEND，该action表明该intent用于从一个activity发送数据到另外一个a......
+这是一个读 google的 android 教程的整理。仅以记录，不求误人。卽此而已。
+ 关于 IDE
+欲善其事必利其器，在工具的对比和选择时间耗费整整用了一天。不过仍有磨刀不费砍柴功的感觉。直接上结论。
+
+
+eclipse pass ,其因不再赘述。
+IDE......
         </div>
     </a>
     
@@ -241,20 +245,20 @@ Tags:Training-for-Android-developers
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-06-对象/">
+    <a href="/2015/06/22/Chapter-07-包和引入/">
         <h2 class="post-title">
-            Chapter-06-对象
+            Chapter-07-包和引入
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-06-对象
-对象 object
+             Chapter-07-包和引入
+包 引入 import package
 
- 单例对象
-scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
-123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
+ 包
+scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
+1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
         </div>
     </a>
     
@@ -447,39 +451,6 @@ a 标识符 b
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-07-包和引入/">
-        <h2 class="post-title">
-            Chapter-07-包和引入
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-07-包和引入
-包 引入 import package
-
- 包
-scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
-1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2015/06/22/Chapter-05-类/">
         <h2 class="post-title">
             Chapter-05-类
@@ -518,19 +489,53 @@ scala类中的方法默认为public的
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-03-working-with-arrays/">
+    <a href="/2015/06/22/Chapter-06-对象/">
         <h2 class="post-title">
-            Chapter-03-working-with-arrays
+            Chapter-06-对象
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-03-working-with-arrays
-数组
+             Chapter-06-对象
+对象 object
 
- 定长数组
-12345678val nums = new Array[Int](10)//初始化10整数的数组，所有元素初始化为0val strs = new Array[String](10)//10个值为nullval s = Array("Hello", "Allon")//Array对象的apply方法s(0) ......
+ 单例对象
+scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
+123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/Chapter-04-Map和元组/">
+        <h2 class="post-title">
+            Chapter-04-Map和元组
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-04-Map和元组
+Map 映射 元组
+
+ 创建Map并取值
+scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
+12345val map = Map("Allon" -&gt; 29, "Jerry" -&gt; 18, "Karen" -&gt; 54 )map("Allon")//返回29map("Allon") = 30//会报错，因为这个Map默......
         </div>
     </a>
     
