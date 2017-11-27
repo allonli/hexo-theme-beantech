@@ -92,7 +92,7 @@
                     <div class="site-heading">
                         <h1>李郞小汇</h1>
                         <!--<hr class="small">-->
-                        <span class="subheading"></span>
+                        <span class="subheading">I would rather die of passion than of boredom.</span>
                     </div>
                 
 
@@ -134,13 +134,13 @@
                     
                         
                         <li>
-                            <a href="/archive/">文章</a>
+                            <a href="/about/">关于</a>
                         </li>
                         
                     
                         
                         <li>
-                            <a href="/about/">关于</a>
+                            <a href="/archive/">文章</a>
                         </li>
                         
                     
@@ -208,19 +208,20 @@
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-03-working-with-arrays/">
+    <a href="/2015/06/22/Chapter-04-Map和元组/">
         <h2 class="post-title">
-            Chapter-03-working-with-arrays
+            Chapter-04-Map和元组
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-03-working-with-arrays
-数组
+             Chapter-04-Map和元组
+Map 映射 元组
 
- 定长数组
-12345678val nums = new Array[Int](10)//初始化10整数的数组，所有元素初始化为0val strs = new Array[String](10)//10个值为nullval s = Array("Hello", "Allon")//Array对象的apply方法s(0) ......
+ 创建Map并取值
+scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
+12345val map = Map("Allon" -&gt; 29, "Jerry" -&gt; 18, "Karen" -&gt; 54 )map("Allon")//返回29map("Allon") = 30//会报错，因为这个Map默......
         </div>
     </a>
     
@@ -259,6 +260,47 @@ scala 基础
 3.执行scala命令
 
  Int......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/Chapter-11-operators/">
+        <h2 class="post-title">
+            Chapter-11-operators
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-11-operators
+操作符
+
+ 标识符和操作符
+变量、函数、类等名称统称为标识符。在scala中的标识符，一般不跟关键字冲突，几乎所有的Unicode字符都可以。
+在scala中，很多时候操作符实际上是函数名，所以标识符和操作符这两个概念差别不大。
+常见的赋值操作符
+a 操作符= b
+等价于： a = a 操作符 b
+
+
+ infix（中置）
+a 标识符 b
+如 1 ......
         </div>
     </a>
     
@@ -321,11 +363,13 @@ scala 基础
             
         
             
-            <a href="/tags/#数学" title="数学" rel="2">数学</a>
+            <a href="/tags/#深入理解计算机系统" title="深入理解计算机系统" rel="3">深入理解计算机系统</a>
             
         
             
-            <a href="/tags/#深入理解计算机系统" title="深入理解计算机系统" rel="3">深入理解计算机系统</a>
+            <a href="/tags/#数学" title="数学" rel="2">数学</a>
+            
+        
             
         
     </div>
@@ -400,11 +444,15 @@ scala 基础
     <ul>
       
         <li>
-          <a href="/2017/11/22/书法工具/">书法工具</a>
+          <a href="/2017/11/27/資治通鑑總覽/">資治通鑑總覽</a>
         </li>
       
         <li>
           <a href="/2017/11/22/书法基础理论/">书法基础理论</a>
+        </li>
+      
+        <li>
+          <a href="/2017/11/22/书法工具/">书法工具</a>
         </li>
       
         <li>
@@ -413,10 +461,6 @@ scala 基础
       
         <li>
           <a href="/2017/11/21/线性代数/">线性代数这点事</a>
-        </li>
-      
-        <li>
-          <a href="/2017/02/22/第03章 程序的机器级表示/">第03章 程序的机器级表示</a>
         </li>
       
     </ul>
@@ -443,7 +487,7 @@ scala 基础
         
     <h5>文章</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">11</span></li></ul>
     </div>
 
 
