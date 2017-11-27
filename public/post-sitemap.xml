@@ -8,7 +8,7 @@
 
     <url>
         <loc>http://www.allonli.com/2017/11/27/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91%E7%B8%BD%E8%A6%BD/</loc>
-        <lastmod>2017-11-27T07:19:39.441Z</lastmod>
+        <lastmod>2017-11-27T07:40:05.182Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -55,7 +55,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2016/02/22/chapter-03-bitmap-and-background-threads/</loc>
+        <loc>http://www.allonli.com/2016/02/22/chapter-01-getting-started/</loc>
         <lastmod>2017-11-25T06:38:21.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -63,7 +63,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2016/02/22/chapter-01-getting-started/</loc>
+        <loc>http://www.allonli.com/2016/02/22/chapter-03-bitmap-and-background-threads/</loc>
         <lastmod>2017-11-25T06:38:21.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -95,6 +95,14 @@
     </url>
 
     <url>
+        <loc>http://www.allonli.com/2015/06/22/Chapter-07-%E5%8C%85%E5%92%8C%E5%BC%95%E5%85%A5/</loc>
+        <lastmod>2017-11-25T06:28:50.496Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.allonli.com/2015/06/22/Chapter-08-%E7%BB%A7%E6%89%BF/</loc>
         <lastmod>2017-11-25T06:28:50.496Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -111,22 +119,6 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-07-%E5%8C%85%E5%92%8C%E5%BC%95%E5%85%A5/</loc>
-        <lastmod>2017-11-25T06:28:50.496Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-04-Map%E5%92%8C%E5%85%83%E7%BB%84/</loc>
-        <lastmod>2017-11-25T06:28:50.495Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.allonli.com/2015/06/22/Chapter-02-control-structures-and-functions/</loc>
         <lastmod>2017-11-25T06:28:50.495Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -136,6 +128,14 @@
 
     <url>
         <loc>http://www.allonli.com/2015/06/22/Chapter-03-working-with-arrays/</loc>
+        <lastmod>2017-11-25T06:28:50.495Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.allonli.com/2015/06/22/Chapter-04-Map%E5%92%8C%E5%85%83%E7%BB%84/</loc>
         <lastmod>2017-11-25T06:28:50.495Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
