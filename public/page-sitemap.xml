@@ -7,6 +7,13 @@
     </url>
     
     <url>
+        <loc>http://www.allonli.com/about/</loc>
+        <lastmod>2017-11-30T11:27:16.648Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://www.allonli.com/tags/</loc>
         <lastmod>2017-11-25T07:33:25.003Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -16,13 +23,6 @@
     <url>
         <loc>http://www.allonli.com/archive/</loc>
         <lastmod>2017-11-25T07:32:53.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://www.allonli.com/about/</loc>
-        <lastmod>2017-11-25T07:32:25.353Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

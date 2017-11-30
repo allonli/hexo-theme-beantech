@@ -208,19 +208,21 @@
 
 <div class="post-preview">
 
-    <a href="/2016/02/22/chapter-03-bitmap-and-background-threads/">
+    <a href="/2016/02/22/chapter-04-best-practices-for-memory/">
         <h2 class="post-title">
-            chapter-03-bitmap-and-background-threads
+            chapter-04-best-practices-for-memory
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             chapter-03-bitmap-and-background-threads
+             chapter-04-best-practices-for-memory
 Tags:Training-for-Android-developers
 
- 位图（Bitmap）
-和Drawable的区别：一个Bitmap对象是一张bitmap格式图片的表示(类似于Java.awt.image）。一个Drawable对象是“那些能够在其上面画的任意对象”，它也许是一个bitmap对象，也......
+ 管理内存
+Android没有使用Linux中的swap的文件交换区方式。但是还是使用了纯内存paging（以下称内存页）和mmapped（文件内存映射）。为了满足每个app对RAM的需要，Android在进程间共享内存页。
+ 共享内存
+通常......
         </div>
     </a>
     
@@ -240,24 +242,20 @@ Tags:Training-for-Android-developers
 
 <div class="post-preview">
 
-    <a href="/2016/02/22/chapter-01-getting-started/">
+    <a href="/2016/02/22/chapter-02-sharing-and-multimedia/">
         <h2 class="post-title">
-            chapter-01-getting-started
+            chapter-02-sharing-and-multimedia
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             chapter-01-getting-started
-Tags: Training-for-Android-developers
+             chapter-02-sharing-and-multimedia
+Tags:Training-for-Android-developers
 
-这是一个读 google的 android 教程的整理。仅以记录，不求误人。卽此而已。
- 关于 IDE
-欲善其事必利其器，在工具的对比和选择时间耗费整整用了一天。不过仍有磨刀不费砍柴功的感觉。直接上结论。
-
-
-eclipse pass ,其因不再赘述。
-IDE......
+ 分享
+ 分享简单的数据
+在构建一个intent时，必须指定这个intent需要触发的actions。Android定义了一些actions，比如ACTION_SEND，该action表明该intent用于从一个activity发送数据到另外一个a......
         </div>
     </a>
     
@@ -277,20 +275,25 @@ IDE......
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-07-包和引入/">
+    <a href="/2015/06/22/Chapter-05-类/">
         <h2 class="post-title">
-            Chapter-07-包和引入
+            Chapter-05-类
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-07-包和引入
-包 引入 import package
+             Chapter-05-类
+类 class
 
- 包
-scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
-1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
+ 简单类和无参方法
+scala中的类简单的和java相似，主要设计和习惯区别是：
+
+scala类中的方法默认为public的
+字段必须初始化
+类只有public的，所以不声明public关键字了（经常一个scala源文件会包含很多个类）
+
+123456789class Counter &#123;    private var value = 0......
         </div>
     </a>
     
@@ -310,25 +313,28 @@ scala中的包和C++的命名空间和java中的包概念是相同的，只不�
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-01-the-basics/">
+    <a href="/2015/06/22/Chapter-11-operators/">
         <h2 class="post-title">
-            Chapter-01-the-basics
+            Chapter-11-operators
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-01-the-basics
-scala 基础
+             Chapter-11-operators
+操作符
 
- 命令行环境
-在学习scala时可以用两种方式结合学习，一种是命令行模式，这适合执行一些简单的代码。以便快速得到结果。另一种是使用IDE开发，IDE这里使用的是IntelliJ IDEA。以下介绍了简单的几个步骤。
- EPFL命令行
-1.安装scala
-2.将scala/bin加到PATH中
-3.执行scala命令
+ 标识符和操作符
+变量、函数、类等名称统称为标识符。在scala中的标识符，一般不跟关键字冲突，几乎所有的Unicode字符都可以。
+在scala中，很多时候操作符实际上是函数名，所以标识符和操作符这两个概念差别不大。
+常见的赋值操作符
+a 操作符= b
+等价于： a = a 操作符 b
 
- Int......
+
+ infix（中置）
+a 标识符 b
+如 1 ......
         </div>
     </a>
     
@@ -447,28 +453,20 @@ extends 继承
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-11-operators/">
+    <a href="/2015/06/22/Chapter-02-control-structures-and-functions/">
         <h2 class="post-title">
-            Chapter-11-operators
+            Chapter-02-control-structures-and-functions
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-11-operators
-操作符
+             Chapter-02-control-structures-and-functions
+函数 控制结构 异常
 
- 标识符和操作符
-变量、函数、类等名称统称为标识符。在scala中的标识符，一般不跟关键字冲突，几乎所有的Unicode字符都可以。
-在scala中，很多时候操作符实际上是函数名，所以标识符和操作符这两个概念差别不大。
-常见的赋值操作符
-a 操作符= b
-等价于： a = a 操作符 b
-
-
- infix（中置）
-a 标识符 b
-如 1 ......
+ 条件表达式
+scala里的if/else是有值的，返回的值就是那个表达式的值。如果if语句的条件为false没有进入语句块，那么该if表达式的值为Unit(含义接近void，和void的区别是：void是空的钱包，Unit是钱包里一张写着“没钱”的纸币)，写做()。
+scala......
         </div>
     </a>
     
@@ -521,25 +519,20 @@ scala中没有静态方法和字段。只要的功效可以用object语法来实
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-05-类/">
+    <a href="/2015/06/22/Chapter-07-包和引入/">
         <h2 class="post-title">
-            Chapter-05-类
+            Chapter-07-包和引入
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-05-类
-类 class
+             Chapter-07-包和引入
+包 引入 import package
 
- 简单类和无参方法
-scala中的类简单的和java相似，主要设计和习惯区别是：
-
-scala类中的方法默认为public的
-字段必须初始化
-类只有public的，所以不声明public关键字了（经常一个scala源文件会包含很多个类）
-
-123456789class Counter &#123;    private var value = 0......
+ 包
+scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
+1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
         </div>
     </a>
     
@@ -606,11 +599,11 @@ scala类中的方法默认为public的
             
         
             
-            <a href="/tags/#数学" title="数学" rel="2">数学</a>
+            <a href="/tags/#深入理解计算机系统" title="深入理解计算机系统" rel="3">深入理解计算机系统</a>
             
         
             
-            <a href="/tags/#深入理解计算机系统" title="深入理解计算机系统" rel="3">深入理解计算机系统</a>
+            <a href="/tags/#数学" title="数学" rel="2">数学</a>
             
         
             
@@ -691,11 +684,11 @@ scala类中的方法默认为public的
         </li>
       
         <li>
-          <a href="/2017/11/22/书法工具/">书法工具</a>
+          <a href="/2017/11/22/书法基础理论/">书法基础理论</a>
         </li>
       
         <li>
-          <a href="/2017/11/22/书法基础理论/">书法基础理论</a>
+          <a href="/2017/11/22/书法工具/">书法工具</a>
         </li>
       
         <li>
