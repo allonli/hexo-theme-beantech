@@ -213,7 +213,7 @@
 <p>Tags: 深入理解计算机系统</p>
 <p>[TOC]</p>
 <hr>
-<h2><span id="第一章">第一章</span></h2>
+<h2><span id="第一章"> 第一章</span></h2>
 <hr>
 <p><img src="http://static.zybuluo.com/allon6/qciw23zdgnf96cr1yys34mjo/image_1beikj90n1f6gv9a1fjbv6n18m49.png" alt="image_1beikj90n1f6gv9a1fjbv6n18m49.png-133.7kB"></p>
 <blockquote>
@@ -285,9 +285,9 @@ I/O设备通过控制器和适配器与I/O总线相连：</p>
 </ol>
 <p>####主存<br>
 主内存就是一个从index 0开始的字节数组，每个内存字节都有唯一的index也就是唯一的地址。</p>
-<h4><span id="寄存器">寄存器</span></h4>
+<h4><span id="寄存器"> 寄存器</span></h4>
 <p>寄存器文件是一个小的存储设备，由一组单个字长的寄存器组成。每个寄存器都有唯一的名字。</p>
-<h4><span id="cpu指令执行过程">CPU指令执行过程</span></h4>
+<h4><span id="cpu指令执行过程"> CPU指令执行过程</span></h4>
 <p>几乎所有的冯•诺伊曼型计算机的CPU，其工作都可以分为5个阶段：取指令、指令译码、执行指令、访存取数和结果写回<br>
 <img src="http://static.zybuluo.com/allon6/hoxu6w8adddrf52uy7a302ap/image_1bgvo3oi51mtlrjp1ijf1ek4t39m.png" alt="image_1bgvo3oi51mtlrjp1ijf1ek4t39m.png-46.2kB"></p>
 <p>（1）指令周期</p>
@@ -304,12 +304,12 @@ CPU周期也称为机器周期。</p>
 <p><img src="http://static.zybuluo.com/allon6/se1cnxl50kpwfdfr1qrk3p7x/image_1bgvp0q9ksh5hdop3n1i2f3g31g.png" alt="采用定长CPU周期的指令周期示意图"></p>
 <p>（4）取出和执行任何一条指令所需的最短时间为两个CPU周期。</p>
 <p>任何一条指令，它的指令周期至少需要两个CPU周期，而复杂指令的指令周期则需要更多的CPU周期。这是因为，一条指令的取出阶段需要一个CPU周期时间，而一条指令的执行阶段则需要至少一个CPU周期时间。由于不同复杂度指令的执行周期所需的CPU周期数不尽相等，因此，各种指令的指令周期也是不尽相同的。z</p>
-<h4><span id="一个hello-world程序执行过程">一个hello world程序执行过程</span></h4>
+<h4><span id="一个hello-world程序执行过程"> 一个hello world程序执行过程</span></h4>
 <ul>
 <li>利用直接存储器存取（DMA）直接从磁盘不经过cpu拷贝运行文件到主存</li>
 <li>cpu从主存拷贝字符串到寄存器再从寄存器拷贝到显示器</li>
 </ul>
-<h3><span id="存储器">存储器</span></h3>
+<h3><span id="存储器"> 存储器</span></h3>
 <p>####CPU缓存<br>
 运行速度很多消耗在拷贝过程， 由于寄存器越来越快，主存的速度严重跟不上。中间出现了L1 L2 L3这种高速缓存。为CPU提前从主存中获取数据到缓存。</p>
 <ul>
@@ -320,20 +320,20 @@ CPU周期也称为机器周期。</p>
 <li>磁盘读取单个字的时间开销比主存大1000万倍<br>
 <img src="http://static.zybuluo.com/allon6/tw906gbl5wwhkrrmrzxmga18/image_1bejtnn9t1lp2aiqk2a1hrjes0m.png" alt="image_1bejtnn9t1lp2aiqk2a1hrjes0m.png-138.7kB"></li>
 </ul>
-<h4><span id="结构图">结构图</span></h4>
+<h4><span id="结构图"> 结构图</span></h4>
 <p><img src="http://static.zybuluo.com/allon6/rbd8q1olikakhvm6lkcibeh1/image_1bejuddb8lan1ou51l0v93915bp13.png" alt="image_1bejuddb8lan1ou51l0v93915bp13.png-281kB"></p>
-<h4><span id="虚拟内存">虚拟内存</span></h4>
+<h4><span id="虚拟内存"> 虚拟内存</span></h4>
 <p>虚拟内存和CPU缓存作用一样，它是用来做磁盘的缓存。</p>
-<h3><span id="多核处理器结构">多核处理器结构</span></h3>
+<h3><span id="多核处理器结构"> 多核处理器结构</span></h3>
 <p><img src="http://static.zybuluo.com/allon6/wgf5sxdj3c7sxuxq4z194v4n/image_1bel90rvjdr376a1ag913e84951g.png" alt="image_1bel90rvjdr376a1ag913e84951g.png-433.5kB"></p>
 <ul>
 <li>由高到低：线程级-&gt;多指令并行-&gt;单指令并行</li>
 </ul>
-<h4><span id="超线程">超线程</span></h4>
+<h4><span id="超线程"> 超线程</span></h4>
 <p>4核能跑8条线程，就是一种超线程。比如当一个CPU在正等L1缓存的数据，那么这会它也可以跑另一个线程的运算。Intel Core I7就带有超线程技术。</p>
-<h4><span id="指令级并行">指令级并行</span></h4>
+<h4><span id="指令级并行"> 指令级并行</span></h4>
 <p>一口气执行多条指令，超标量。</p>
-<h4><span id="单指令多数据并行simd">单指令多数据并行（SIMD）</span></h4>
+<h4><span id="单指令多数据并行simd"> 单指令多数据并行（SIMD）</span></h4>
 <blockquote>
 <p>SIMD 指令多是为了提高处理影像 、 声音和视频数据应用的执行速度。虽然有些编译器试图从程序中自动抽取 SIMD 并行性，但是更可靠的方法是使用编译器支持的特殊向量数据类型来写程序，例如GCC 就支持向量数据类型。作为对比较通用的程序优化讲述的补充，在网络旁注 OPT:SIMD 中描述了这种编程方式 。</p>
 </blockquote>
@@ -345,12 +345,12 @@ CPU周期也称为机器周期。</p>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/02/22/第02章 程序结构和执行/" data-toggle="tooltip" data-placement="top" title="第02章 程序结构和执行">&larr; 上一篇</a>
+                            <a href="/2017/02/22/第03章 程序的机器级表示/" data-toggle="tooltip" data-placement="top" title="第03章 程序的机器级表示">&larr; 上一篇</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2016/02/22/chapter-02-sharing-and-multimedia/" data-toggle="tooltip" data-placement="top" title="chapter-02-sharing-and-multimedia">下一篇 &rarr;</a>
+                            <a href="/2017/02/22/第02章 程序结构和执行/" data-toggle="tooltip" data-placement="top" title="第02章 程序结构和执行">下一篇 &rarr;</a>
                         </li>
                     
                 </ul>
@@ -376,7 +376,7 @@ CPU周期也称为机器周期。</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">第一章</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">寄存器</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">CPU指令执行过程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">一个hello world程序执行过程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">存储器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">结构图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">虚拟内存</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">多核处理器结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">超线程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">指令级并行</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">单指令多数据并行（SIMD）</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"> 第一章</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text"> 寄存器</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text"> CPU指令执行过程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text"> 一个hello world程序执行过程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"> 存储器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text"> 结构图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text"> 虚拟内存</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"> 多核处理器结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text"> 超线程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text"> 指令级并行</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text"> 单指令多数据并行（SIMD）</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>

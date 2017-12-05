@@ -209,10 +209,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter-03-bitmap-and-background-threads">chapter-03-bitmap-and-background-threads</span></h1>
+                <h1><span id="chapter-03-bitmap-and-background-threads"> chapter-03-bitmap-and-background-threads</span></h1>
 <p>Tags:Training-for-Android-developers</p>
 <hr>
-<h2><span id="位图bitmap">位图（Bitmap）</span></h2>
+<h2><span id="位图bitmap"> 位图（Bitmap）</span></h2>
 <p>和Drawable的区别：一个Bitmap对象是一张bitmap格式图片的表示(类似于Java.awt.image）。一个Drawable对象是“那些能够在其上面画的任意对象”，它也许是一个bitmap对象，也可能是一个solid color、一个其他Drawable对象的集合。 大多数Android UI框架喜欢用Drawable对象，而不是Bitmap对象。一个View可以接受任何Drawable对象作为background。</p>
 <blockquote>
 <ul>
@@ -235,8 +235,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Calculate inSampleSize</span></span><br><span class="line">options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);</span><br></pre></td></tr></table></figure>
 <p>在处理图片时，一般防止图将主线程卡住。一般会使用AsyncTask，将处理图片的过程放到单独的线程中处理。使用弱、软引用时，要注意到目前的虚拟机中GC的频率很高，在API LEVEL 11以前bitmap是放到native内存中，这样被回收后的状态是不可预知的，可能会产生crash。所以要慎重使用这两种引用方式。</p>
 <p>使用缓存是处理图片时的常用方式，一般分为两种方式，内存缓存可以使用LruCache（本质就是一个LinkedHashMap）。也可以使用DiskLruCache。</p>
-<h2><span id="android后台任务">Android后台任务</span></h2>
-<h3><span id="intentservice">IntentService</span></h3>
+<h2><span id="android后台任务"> Android后台任务</span></h2>
+<h3><span id="intentservice"> IntentService</span></h3>
 <blockquote>
 <ul>
 <li>The IntentService class provides a straightforward structure for running an operation on a single background thread.<br>
@@ -273,7 +273,7 @@ An IntentService has a few limitations:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Broadcast receiver for receiving status updates from the IntentService</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ResponseReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// Prevents instantiation</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">DownloadStateReceiver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Called when the BroadcastReceiver gets an Intent it's registered to receive</span></span><br><span class="line">    @</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">...</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * Handle Intents here.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>4, 即使有了receiver类，如果想要收到子线程发的消息。还要让程序知道，接收什么样的消息，用谁来接收。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接收什么样的消息</span></span><br><span class="line">IntentFilter statusIntentFilter = <span class="keyword">new</span> IntentFilter(Constants.BROADCAST_ACTION);</span><br><span class="line">statusIntentFilter.addCategory(Intent.CATEGORY_DEFAULT);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用谁来接收（注册receiver）</span></span><br><span class="line">mDownloadStateReceiver = <span class="keyword">new</span> ResponseReceiver();</span><br><span class="line">LocalBroadcastManager.getInstance(<span class="keyword">this</span>).registerReceiver(mDownloadStateReceiver, statusIntentFilter);</span><br></pre></td></tr></table></figure>
-<h3><span id="点亮屏幕">点亮屏幕</span></h3>
+<h3><span id="点亮屏幕"> 点亮屏幕</span></h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</span><br><span class="line"><span class="comment">//清除flag回到正常状态</span></span><br><span class="line">getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)</span><br></pre></td></tr></table></figure>
 <p>也可以AndroidManifest.xml里定义该属性，由于在AndroidManifest里定义的内容不能动态改变。所以设了就不能反悔。</p>
 
@@ -289,7 +289,7 @@ An IntentService has a few limitations:</p>
                     
                     
                         <li class="next">
-                            <a href="/2015/06/22/Chapter-05-类/" data-toggle="tooltip" data-placement="top" title="Chapter-05-类">下一篇 &rarr;</a>
+                            <a href="/2015/06/22/Chapter-07-包和引入/" data-toggle="tooltip" data-placement="top" title="Chapter-07-包和引入">下一篇 &rarr;</a>
                         </li>
                     
                 </ul>
@@ -315,7 +315,7 @@ An IntentService has a few limitations:</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">chapter-03-bitmap-and-background-threads</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">位图（Bitmap）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Android后台任务</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">IntentService</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">点亮屏幕</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"> chapter-03-bitmap-and-background-threads</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"> 位图（Bitmap）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"> Android后台任务</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text"> IntentService</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text"> 点亮屏幕</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>

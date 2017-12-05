@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          chapter-04-best-practices-for-memory - 李郞小汇
+          第03章 程序的机器级表示 - 李郞小汇
         
     </title>
 
-    <link rel="canonical" href="http://www.allonli.com/2016/02/22/chapter-04-best-practices-for-memory/">
+    <link rel="canonical" href="http://www.allonli.com/2017/02/22/第03章 程序的机器级表示/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -75,7 +75,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/06.jpg')
+            background-image: url('/img/05.jpg')
             /*post*/
         
     }
@@ -92,14 +92,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#android" title="android">android</a>
+                              <a class="tag" href="/tags/#深入理解计算机系统" title="深入理解计算机系统">深入理解计算机系统</a>
                             
                         </div>
-                        <h1>chapter-04-best-practices-for-memory</h1>
+                        <h1>第03章 程序的机器级表示</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by allon li on
-                            2016-02-22
+                            2017-02-22
                         </span>
                     </div>
                 
@@ -209,100 +209,69 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter-04-best-practices-for-memory"> chapter-04-best-practices-for-memory</span></h1>
-<p>Tags:Training-for-Android-developers</p>
+                <h1><span id="第03章-程序的机器级表示"> 第03章 程序的机器级表示</span></h1>
+<p>Tags: 深入理解计算机系统</p>
+<p>[TOC]</p>
 <hr>
-<h2><span id="管理内存"> 管理内存</span></h2>
-<p>Android没有使用Linux中的swap的文件交换区方式。但是还是使用了纯内存paging（以下称内存页）和mmapped（文件内存映射）。为了满足每个app对RAM的需要，Android在进程间共享内存页。</p>
-<h3><span id="共享内存"> 共享内存</span></h3>
-<p><strong>通常遵循下面方式实现：</strong></p>
+<h2><span id="程序编码"> 程序编码</span></h2>
+<p>汇编或者机器码能操作很多对C语言隐藏的CPU状态：</p>
 <blockquote>
 <ul>
-<li>每一个app的进程都是从一个被叫做Zygote的进程中fork出来的（Android也是基于COW，所以性能还不错）。那么理所当然的继承了父进程内存页。</li>
-</ul>
-</blockquote>
-<p>具体过程是：</p>
-<pre><code>1、开机后系统会通过init.rc配置（例如小米4：service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server）先拉起Zygote进程
-2、这个进程启动后自动加载android框架代码和资源（例如activity themes）
-3、然后再fork出具体的app进程，那这样一来就可以让所有的android app进程共享框架load的内存资源。
-</code></pre>
-<p>大多数静态数据被映射到进程中。这样让的数据在进程间共享。</p>
-<pre><code>静态数据包括：
-1、Dalvik 代码 (放在一个预链接好的.odex 文件中以便直接mapping)
-2、App Resources(它们被组织成资源映射表的结构，然后把APK中的文件做对齐的操作来，以便更容易做内存映射）
-3、native代码如.so文件。
-</code></pre>
-<blockquote>
-<ul>
-<li>用户显示的分配内存如：ashmem pmem gralloc等方式。</li>
-</ul>
-</blockquote>
-<p>如要查看分析共享内存：<br>
-<a href="http://developer.android.com/tools/debugging/debugging-memory.html" target="_blank" rel="noopener">http://developer.android.com/tools/debugging/debugging-memory.html</a></p>
-<h3><span id="android系统对内存的分配和回收"> Android系统对内存的分配和回收</span></h3>
-<blockquote>
-<ul>
-<li>Android虚拟机和java的结构非常类似，主要对象的存储也是在堆上。(不过Android是跑在别人的手机里。所以你不能像服务器随便设置虚拟机堆的各项参数。虚拟机又不是咱们家的，当然不可以这么干)。系统会限制单个应用的堆内存大小。</li>
+<li>程序计数器（PC，在x86-64中用%rip表示）给出将要执行的下一条指令。</li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>heap的逻辑大小和实际使用的物理内存大小是不相同的。假设共享内存大小是10M，一共有20个Process在共享使用，根据权重，可能认为其中有0.3M才是你的进程所使用的大小。这个实际的值叫PSS（Proportional Set Size）。所以我们只需要查看Total Pss的值就可以知道该应用运行时所占的内存的大小。</li>
+<li>整数寄存器文件的16个位置</li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>系统不会做内存碎片整理，android只会清一下堆的未端不使用的内存。虽然不做碎片整理，但是它会在GC之后，挑出整块不使用的内存页干掉。不过，如果是共有的，很小的内存就不行了。</li>
-</ul>
-</blockquote>
-<p>adb shell dumpsys meminfo com.baidu.vsfinance -d</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">Applications Memory Usage (kB):</span><br><span class="line">Uptime: 18460072 Realtime: 105595846</span><br><span class="line"></span><br><span class="line">** MEMINFO <span class="keyword">in</span> pid 19441 [com.baidu.vsfinance] **</span><br><span class="line">                   Pss  Private  Private  Swapped     Heap     Heap     Heap</span><br><span class="line">                 Total    Dirty    Clean    Dirty     Size    Alloc     Free</span><br><span class="line">                ------   ------   ------   ------   ------   ------   ------</span><br><span class="line">  Native Heap       24       24        0        0    15920     7033      502</span><br><span class="line">  Dalvik Heap    20988    20604        0        0    42724    40882     1842</span><br><span class="line"> Dalvik Other     3404     3352        0        0                           </span><br><span class="line">        Stack      192      192        0        0                           </span><br><span class="line">    Other dev    12400     9444        4        0                           </span><br><span class="line">     .so mmap     2527     1436      524        0                           </span><br><span class="line">    .jar mmap        4        0        4        0                           </span><br><span class="line">    .apk mmap      344        0      228        0                           </span><br><span class="line">    .ttf mmap      390        0      136        0                           </span><br><span class="line">    .dex mmap     3778       72     3324        0                           </span><br><span class="line">   Other mmap       62       12       36        0                           </span><br><span class="line">      Unknown     3843     3840        0        0                           </span><br><span class="line">        TOTAL    47956    38976     4256        0    58644    47915     2344</span><br><span class="line"> </span><br><span class="line"> Objects</span><br><span class="line">               Views:      263         ViewRootImpl:        6</span><br><span class="line">         AppContexts:        6           Activities:        3</span><br><span class="line">              Assets:        5        AssetManagers:        5</span><br><span class="line">       Local Binders:       19        Proxy Binders:       25</span><br><span class="line">    Death Recipients:        1</span><br><span class="line">     OpenSSL Sockets:        0</span><br><span class="line"> </span><br><span class="line"> SQL</span><br><span class="line">         MEMORY_USED:      291</span><br><span class="line">  PAGECACHE_OVERFLOW:       77          MALLOC_SIZE:       62</span><br><span class="line"> </span><br><span class="line"> DATABASES</span><br><span class="line">      pgsz     dbsz   Lookaside(b)          cache  Dbname</span><br><span class="line">         4       32             45         2/17/3  /data/data/com.baidu.vsfinance/databases/afinal.db</span><br></pre></td></tr></table></figure>
-<h3><span id="api获取内存相关信息"> API获取内存相关信息</span></h3>
-<p>除了使用dumpsys命令外，也可以使用ActivityManager类的查看各种内存信息，这个方式好在它可以实时查，另外使用getMemoryClass()可以查看当前系统对单个app的最大内存限制。</p>
-<blockquote>
-<p>在一些特殊的情景下，可以通过在manifest的application标签下添加largeHeap=true的属性来声明一个更大的heap空间。如果这样做你可以通过getLargeMemoryClass())来获取到一个更大的heap size。<br>
-不要轻易的因为你需要使用大量的内存而去请求一个大的heap size。只有当你清楚的知道哪里会使用大量的内存并且为什么这些内存必须被保留时才去使用large heap。<br>
-另外, large heap并不一定能够获取到更大的heap。在某些有严格限制的机器上，large heap的大小和通常的heap size是一样的。因此即使你申请了large heap，你还是应该通过执行getMemoryClass()来检查实际获取到的heap大小。</p>
-</blockquote>
-<p>ComponentCallbacks2类有一个onTrimMemory(int)回调，接受的int值表示现在的内存状态。比如ComponentCallbacks2.TRIM_MEMORY_RUNNING_MODERATE表示app正在运行并且不会被列为可杀死的。但是设备此时正运行于低内存状态下，系统开始触发杀死LRU Cache中的Process的机制。<br>
-具体还有很多值，都在：<a href="http://developer.android.com/reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)" target="_blank" rel="noopener">http://developer.android.com/reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)</a></p>
-<p>因为android的内存不像java一样舒爽，所以有些内存数据也要适当关注一下：</p>
-<p>Enums often require more than twice as much memory as static constants. You should strictly avoid using enums on Android.<br>
-Every class in Java (including anonymous inner classes) uses about 500 bytes of code.<br>
-Every class instance has 12-16 bytes of RAM overhead.<br>
-Putting a single entry into a HashMap requires the allocation of an additional entry object that takes 32 bytes.</p>
-<blockquote>
-<ul>
-<li>Enums的内存消耗通常是static constants的2倍。你应该尽量避免在Android上使用enums。</li>
-<li>在Java中的每一个类(包括匿名内部类)都会使用大概500 bytes。</li>
-<li>每一个类的实例花销至少是12-16 bytes。</li>
-<li>往HashMap添加一个entry需要额一个额外占用的32 bytes的entry对象。</li>
-</ul>
-</blockquote>
-<p>Often, developers use abstractions simply as a “good programming practice,” because abstractions can improve code flexibility and maintenance. However, abstractions come at a significant cost: generally they require a fair amount more code that needs to be executed, requiring more time and more RAM for that code to be mapped into memory. So if your abstractions aren’t supplying a significant benefit, you should avoid them.</p>
-<blockquote>
-<ul>
-<li>更不爽的是，在google文档中居然还明确指出，没有特别明显的优化效果，不要使用抽象。这在设计时不免可惜。</li>
+<li>条件寄存器（实现if、while等）</li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>为了降低内存占用，将部分内容放在服务端，同时google推荐使用他们的“homebrew(家酿)”产品protobuf的微缩版nano protobuf。</li>
+<li>一组向量寄存器可以存放一个或多个浮点数值。</li>
+</ul>
+</blockquote>
+<p>汇编指令或者机器码特点：</p>
+<blockquote>
+<ul>
+<li>x86-64的指令1到15字节，常用的短，不常用的长。</li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>为了节省资源，google也不建议你使用类似spring的诸如Guice、RoboGuice等依赖注入框架（还有天理吗）。</li>
+<li>mac上反汇编可以使用otool -tV test.o，linux上可以用objdump</li>
 </ul>
 </blockquote>
-<p>每次限定使用时，google都非常open的告诉你这个东西好。然后跟一个but:它耗资源。然并卵！</p>
 <blockquote>
 <ul>
-<li>ProGuard能够通过移除不需要的代码，重命名类，域与方法等方对代码进行压缩，优化与混淆。使用ProGuard可以使得你的代码更加紧凑，这样能够使用更少mapped代码所需要的RAM。<a href="http://developer.android.com/tools/help/proguard.html" target="_blank" rel="noopener">http://developer.android.com/tools/help/proguard.html</a></li>
+<li>汇编格式分两种：ATT是GCC和objdump默认格式，另外还有intel和微软的使用的都是intel的格式。编译的时候加上-masm=intel。</li>
 </ul>
 </blockquote>
-<p>zipalign这个东西可以帮你的apk做对齐，这个进内存的效率提升和空间节省都会有的。而且有些图片儿啥的不能做内存mapped。必须要对齐一下。而且Google Play不接受没有经过zipalign的APK。<br>
-<a href="http://developer.android.com/tools/help/zipalign.html" target="_blank" rel="noopener">http://developer.android.com/tools/help/zipalign.html</a></p>
+<blockquote>
+<ul>
+<li>C语言和汇编可以结合编译。另外，C语言的if代价很高。</li>
+</ul>
+</blockquote>
+<p><img src="http://static.zybuluo.com/allon6/js1wq6rorgfytob2opajes74/image_1bf6nhuvqllm13ro1kuo115m13sm.png" alt="image_1bf6nhuvqllm13ro1kuo115m13sm.png-150.4kB"></p>
+<blockquote>
+<p>类型的关键就在汇编指令的后缀决定着汇编指令的大小和类型，这种约定决定了它是float还是int。<br>
+|C声明        | Intel数据类型    | 汇编代码后缀        | 大小（字节）   |<br>
+| ----------| --------| ----------| --------|<br>
+| char    |  字节|  b |1|<br>
+| short        |   字   | w |2|<br>
+| int        |   双字   |  l |4|<br>
+|long         | 四字 |q |8|<br>
+|char*         |四字| q |8|<br>
+|float  |单精度| s |4|<br>
+|double |双精度| l |8|</p>
+</blockquote>
+<h2><span id="控制"> 控制</span></h2>
+<p>###条件码<br>
+除了整数寄存器，CPU还维护着一组单个位的条件码（condition code）寄存器。</p>
 
                 
 
@@ -311,12 +280,12 @@ Putting a single entry into a HashMap requires the allocation of an additional e
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2016/02/22/chapter-02-sharing-and-multimedia/" data-toggle="tooltip" data-placement="top" title="chapter-02-sharing-and-multimedia">&larr; 上一篇</a>
+                            <a href="/2017/11/21/线性代数/" data-toggle="tooltip" data-placement="top" title="线性代数这点事">&larr; 上一篇</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2016/02/22/chapter-01-getting-started/" data-toggle="tooltip" data-placement="top" title="chapter-01-getting-started">下一篇 &rarr;</a>
+                            <a href="/2017/02/22/第02章 程序结构和执行/" data-toggle="tooltip" data-placement="top" title="第02章 程序结构和执行">下一篇 &rarr;</a>
                         </li>
                     
                 </ul>
@@ -342,7 +311,7 @@ Putting a single entry into a HashMap requires the allocation of an additional e
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"> chapter-04-best-practices-for-memory</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"> 管理内存</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text"> 共享内存</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text"> Android系统对内存的分配和回收</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text"> API获取内存相关信息</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"> 第03章 程序的机器级表示</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"> 程序编码</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"> 控制</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -362,7 +331,7 @@ Putting a single entry into a HashMap requires the allocation of an additional e
                     <h5><a href="/tags/">分类</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#android" title="android">android</a>
+                          <a class="tag" href="/tags/#深入理解计算机系统" title="深入理解计算机系统">深入理解计算机系统</a>
                         
                     </div>
                 </section>
