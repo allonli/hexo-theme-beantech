@@ -242,24 +242,20 @@ Android没有使用Linux中的swap的文件交换区方式。但是还是使用�
 
 <div class="post-preview">
 
-    <a href="/2016/02/22/chapter-01-getting-started/">
+    <a href="/2016/02/22/chapter-02-sharing-and-multimedia/">
         <h2 class="post-title">
-            chapter-01-getting-started
+            chapter-02-sharing-and-multimedia
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             chapter-01-getting-started
-Tags: Training-for-Android-developers
+             chapter-02-sharing-and-multimedia
+Tags:Training-for-Android-developers
 
-这是一个读 google的 android 教程的整理。仅以记录，不求误人。卽此而已。
- 关于 IDE
-欲善其事必利其器，在工具的对比和选择时间耗费整整用了一天。不过仍有磨刀不费砍柴功的感觉。直接上结论。
-
-
-eclipse pass ,其因不再赘述。
-IDE......
+ 分享
+ 分享简单的数据
+在构建一个intent时，必须指定这个intent需要触发的actions。Android定义了一些actions，比如ACTION_SEND，该action表明该intent用于从一个activity发送数据到另外一个a......
         </div>
     </a>
     
@@ -410,19 +406,21 @@ scala......
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-09-文件和正则表达式/">
+    <a href="/2015/06/22/Chapter-08-继承/">
         <h2 class="post-title">
-            Chapter-09-文件和正则表达式
+            Chapter-08-继承
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-09-文件和正则表达式
-file 文件 正则表达式 Regular expression
+             Chapter-08-继承
+extends 继承
 
- 读取行
-123456import scala.io.Sourceval source = Source.fromFile("myfile.txt", "UTF-8")val iterator = source.getLines //获取Iterator[String]for(l &......
+ 继承类
+123class Employee extends Person &#123;    var salary = 0.0&#125;
+和java不同的是，java中的final是不可变的。而scala中的final var是可以修改的，只是不能被继承。final val才相当于java的final。
+123456789class ......
         </div>
     </a>
     
@@ -442,21 +440,19 @@ file 文件 正则表达式 Regular expression
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-08-继承/">
+    <a href="/2015/06/22/Chapter-09-文件和正则表达式/">
         <h2 class="post-title">
-            Chapter-08-继承
+            Chapter-09-文件和正则表达式
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-08-继承
-extends 继承
+             Chapter-09-文件和正则表达式
+file 文件 正则表达式 Regular expression
 
- 继承类
-123class Employee extends Person &#123;    var salary = 0.0&#125;
-和java不同的是，java中的final是不可变的。而scala中的final var是可以修改的，只是不能被继承。final val才相当于java的final。
-123456789class ......
+ 读取行
+123456import scala.io.Sourceval source = Source.fromFile("myfile.txt", "UTF-8")val iterator = source.getLines //获取Iterator[String]for(l &......
         </div>
     </a>
     
@@ -517,20 +513,20 @@ a 标识符 b
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-06-对象/">
+    <a href="/2015/06/22/Chapter-04-Map和元组/">
         <h2 class="post-title">
-            Chapter-06-对象
+            Chapter-04-Map和元组
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-06-对象
-对象 object
+             Chapter-04-Map和元组
+Map 映射 元组
 
- 单例对象
-scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
-123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
+ 创建Map并取值
+scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
+12345val map = Map("Allon" -&gt; 29, "Jerry" -&gt; 18, "Karen" -&gt; 54 )map("Allon")//返回29map("Allon") = 30//会报错，因为这个Map默......
         </div>
     </a>
     

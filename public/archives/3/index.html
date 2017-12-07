@@ -246,20 +246,20 @@ scala类中的方法默认为public的
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-04-Map和元组/">
+    <a href="/2015/06/22/Chapter-06-对象/">
         <h2 class="post-title">
-            Chapter-04-Map和元组
+            Chapter-06-对象
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-04-Map和元组
-Map 映射 元组
+             Chapter-06-对象
+对象 object
 
- 创建Map并取值
-scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
-12345val map = Map("Allon" -&gt; 29, "Jerry" -&gt; 18, "Karen" -&gt; 54 )map("Allon")//返回29map("Allon") = 30//会报错，因为这个Map默......
+ 单例对象
+scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
+123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
         </div>
     </a>
     
