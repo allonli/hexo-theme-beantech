@@ -45,7 +45,14 @@
 
     <url>
         <loc>http://www.allonli.com/tags/%E6%B8%B8%E8%AE%B0/</loc>
-        <lastmod>2017-12-20T12:01:08.961Z</lastmod>
+        <lastmod>2017-12-26T03:53:37.660Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.allonli.com/tags/%E5%85%AB%E5%8D%A6/</loc>
+        <lastmod>2017-12-26T05:27:54.281Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

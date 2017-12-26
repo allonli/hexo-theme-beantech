@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>http://www.allonli.com/2017/12/26/%E5%85%AB%E5%8D%A6/</loc>
+        <lastmod>2017-12-26T05:27:54.281Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.allonli.com/2017/12/20/%E9%82%BA%E5%9F%8E%E6%B8%B8%E8%AE%B0/</loc>
-        <lastmod>2017-12-20T12:01:08.961Z</lastmod>
+        <lastmod>2017-12-26T03:53:37.660Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -103,14 +111,6 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2016/02/22/chapter-01-getting-started/</loc>
-        <lastmod>2017-11-25T06:38:21.371Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.allonli.com/2016/02/22/chapter-02-sharing-and-multimedia/</loc>
         <lastmod>2017-11-25T06:38:21.371Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -120,6 +120,14 @@
 
     <url>
         <loc>http://www.allonli.com/2016/02/22/chapter-03-bitmap-and-background-threads/</loc>
+        <lastmod>2017-11-25T06:38:21.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.allonli.com/2016/02/22/chapter-01-getting-started/</loc>
         <lastmod>2017-11-25T06:38:21.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
