@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="汝还白汝天子，我承人乏，为中国所推，已为帝矣。">
+    <meta name="keyword"  content="李永会,李郞小汇,机器学习,移动端,GPU">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Chapter-01-the-basics - 李郞小汇
+        
+    </title>
+
+    <link rel="canonical" href="https://www.allonli.com/2015/06/22/scala/Chapter-01-the-basics/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--allonli add-->
+    <style type=text/css>
+	.at_img img{max-width:70%;}
+    </style>
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- math katex Header -->
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/04.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#scala" title="scala">scala</a>
+                            
+                        </div>
+                        <h1>Chapter-01-the-basics</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by allon li on
+                            2015-06-22
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">李郞小汇</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+
+                    
+                        
+                        <li>
+                            <a href="/about/">关于</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">文章</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">分类</a>
+                        </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article class="at_img">
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2><span id="chapter-01-the-basics"> Chapter-01-the-basics</span></h2>
+<p>scala 基础</p>
+<hr>
+<h3><span id="命令行环境"> 命令行环境</span></h3>
+<p>在学习scala时可以用两种方式结合学习，一种是命令行模式，这适合执行一些简单的代码。以便快速得到结果。另一种是使用IDE开发，IDE这里使用的是IntelliJ IDEA。以下介绍了简单的几个步骤。</p>
+<h4><span id="epfl命令行"> EPFL命令行</span></h4>
+<pre><code>1.安装scala
+2.将scala/bin加到PATH中
+3.执行scala命令
+</code></pre>
+<h4><span id="intellij-idea"> IntelliJ IDEA</span></h4>
+<pre><code>1.安装IDEA
+2.安装scala插件
+3.创建scala工程
+</code></pre>
+<h3><span id="声明常量"> 声明常量</span></h3>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> answer = <span class="number">8</span> * <span class="number">5</span> + <span class="number">2</span> <span class="comment">//不可变常量,不用使用分号</span></span><br><span class="line">answer = <span class="number">1</span> <span class="comment">//错误！</span></span><br><span class="line"><span class="comment">//以上代码等价于以下代码</span></span><br><span class="line"><span class="keyword">val</span> answer : <span class="type">Int</span> = <span class="number">8</span> * <span class="number">5</span> + <span class="number">2</span> <span class="comment">//不用写‘Int’的原因是scala已经有了类型推断</span></span><br><span class="line"><span class="keyword">var</span> name,company : <span class="type">String</span> = <span class="literal">null</span> <span class="comment">//name和company都是初始值为null的字符串</span></span><br></pre></td></tr></table></figure>
+<h3><span id="声明变量"> 声明变量</span></h3>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> answer = <span class="number">8</span> * <span class="number">5</span> + <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3><span id="常用类型"> 常用类型</span></h3>
+<p>scala中也存在七种类型用来对应java的基本类型：Byte、Char、Short、Int、Long、Float、Double、Boolean。scala中不存在基本类型的概念，都视为引用类型。<br>
+下面的&quot;Hello&quot;和1分别被“偷偷”转换（隐式转换，如果想了解可以移步隐式转换那一章）成了StringOps和RichInt</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Hello"</span>.intersect(<span class="string">"World"</span>) <span class="comment">//输出"lo" String被转换成了StringOps</span></span><br><span class="line"><span class="number">1.</span>to(<span class="number">10</span>) <span class="comment">//Int被转换成RichInt</span></span><br></pre></td></tr></table></figure>
+<h3><span id="算术和操作符"> 算术和操作符</span></h3>
+<p>scala中的操作符实际上是方法。1 + 1 实际上等价于1.+(1),加号就是方法名。（java/c++程序员会感觉有些不一样）。并且这些方法同样可以重载，这样一来，你就可以定义属于自己的符号（方法名）定义了。</p>
+<h3><span id="调用函数和方法"> 调用函数和方法</span></h3>
+<p>方法被引用来调用，而scala也支持函数，这些函数不需要从某个类来调用。直接使用便是。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqrt(<span class="number">2</span>) <span class="comment">//平方根</span></span><br><span class="line">pow(<span class="number">2</span>, <span class="number">4</span>) <span class="comment">//4的平方</span></span><br><span class="line">min(<span class="number">3</span>, <span class="type">Pi</span>) <span class="comment">//最小值</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">不过在使用上述函数之前,</span></span><br><span class="line"><span class="comment">你需要import scala.math._相当于java的import scala.math.*</span></span><br><span class="line"><span class="comment">使用以scala开头的包时，可以省略scala前缀。如：import math._</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>scala没有静态方法，要使用类似的特性，可以使用companion object(伴生对象)。<figure class="highlight plain"><figcaption><span>scala.util.Random)```这个生成随机数的方法，实际上BigInt是一个对象。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">不带参数的方法，scala中通常不使用圆括号调用。如```&quot;Hello&quot;.distinct</span><br></pre></td></tr></table></figure></p>
+<p>scala中函数和方法的区别：</p>
+<blockquote>
+<ul>
+<li>Scala中的方法跟Java的方法一样，方法是组成类的一部分。</li>
+<li>Scala中的函数是一个完整的对象。</li>
+</ul>
+</blockquote>
+<p>任何一个函数对象都是一个继承了Function开头的特质（trait，可以暂时当做java中的接口）。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Function1</span>[+<span class="type">T1</span>] <span class="keyword">extends</span> <span class="type">AnyRef</span></span><br><span class="line"><span class="comment">//A function of 1 parameter.</span></span><br><span class="line"><span class="type">Function2</span>[+<span class="type">T1</span>, +<span class="type">T2</span>] <span class="keyword">extends</span> <span class="type">AnyRef</span></span><br><span class="line"><span class="comment">//A function of 2 parameters.</span></span><br><span class="line"><span class="type">Function3</span>[+<span class="type">T1</span>, +<span class="type">T2</span>, +<span class="type">T3</span>] <span class="keyword">extends</span> <span class="type">AnyRef</span></span><br><span class="line"><span class="comment">//A function of 3 parameters.</span></span><br><span class="line"><span class="comment">//最多有Function22</span></span><br></pre></td></tr></table></figure>
+<p>java中有22个函数特质（trait）。任何一个函数都将是这22个trait的具体实现。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以下两种方式结果相同</span></span><br><span class="line"><span class="keyword">val</span> adder = (x:<span class="type">Int</span>,y:<span class="type">Int</span>) =&gt; x+y</span><br><span class="line"><span class="comment">//返回 adder: (Int, Int) =&gt; Int = &lt;function2&gt;</span></span><br><span class="line"><span class="keyword">val</span> adder = <span class="keyword">new</span> <span class="type">Function2</span>[<span class="type">Int</span>,<span class="type">Int</span>,<span class="type">Int</span>]()&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">apply</span></span>(x:<span class="type">Int</span>,y:<span class="type">Int</span>):<span class="type">Int</span> = x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//同样返回 adder: (Int, Int) =&gt; Int = &lt;function2&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="apply方法"> apply方法</span></h3>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">```scala</span><br><span class="line"><span class="string">"Hello"</span>(<span class="number">4</span>) <span class="comment">//等价于"Hello".apply(4),相当于java里的"Hello".charAt(i),这是scala为了便利提供的一种语法糖。</span></span><br><span class="line"><span class="comment">//"Hello"会被隐式转成StringOps，而在伴生对象StringOps中存在着apply方法。</span></span><br></pre></td></tr></table></figure>
+<h3><span id="使用scala-doc"> 使用scala doc</span></h3>
+<p><a href="http://www.scala-lang.org/api" target="_blank" rel="noopener">http://www.scala-lang.org/api</a></p>
+<h4><span id="使用技巧"> 使用技巧:</span></h4>
+<ol>
+<li>左上解可以搜索类名，每条结果左侧的C和O是可以点的。分别进到该类和companion object(伴生对象)。点“display all entities”可以看到所有的包。</li>
+<li>数值类型，多看看RichInt、RichDouble等。字符串看StringOps。</li>
+<li>数学函数位于scala.math包中，不在某个类里。</li>
+<li>如果看到unary_-不要感到奇怪，这是前置的负操作符-x的方式。在操作符那章，你会豁然开朗。</li>
+</ol>
+<h2><span id="习题"> 习题</span></h2>
+<ul>
+<li>
+<p>在Scala REPL中键入“3.” 然后按Tab。有哪些方法可以被应用？</p>
+<pre><code>  %   *   -   &gt;    &gt;&gt;    ^  ...
+</code></pre>
+</li>
+<li>
+<p>在Scala REPL计算3的平方根，再求值平方。现在，这个结果与3相关多少？（提示：res变量是你的朋友。）</p>
+</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math._</span><br><span class="line">sqrt(<span class="number">3</span>)</span><br><span class="line"><span class="comment">// res85: Double = 1.7320508075688772</span></span><br><span class="line"></span><br><span class="line">res85*res85</span><br><span class="line"><span class="comment">// res86: Double = 2.9999999999999996</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span> - res86</span><br><span class="line"><span class="comment">// res87: Double = 4.440892098500626E-16</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>res变量是val还是var?</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">res89 = <span class="number">3</span></span><br><span class="line"><span class="comment">//&lt;console&gt;:8: error: reassignment to val</span></span><br><span class="line"><span class="comment">//res9 = 3</span></span><br><span class="line"><span class="comment">//   ^</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Scala允许你用数字去乘字符串—去REPL中试一下&quot;crazy&quot;*3。这个操作做什么？在Scaladoc中如何找到这个操作?</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"crazy"</span> * <span class="number">3</span></span><br><span class="line"><span class="comment">// res90: String = crazycrazycrazy</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><em>是它的方法&quot;crazy&quot;.</em>(3)。直接到StringOps类看*方法即可。</li>
+</ul>
+<ol start="5">
+<li>
+<p>10 max 2的含义是什么？max方法在哪个类中？</p>
+<p>此方法返回两个数字中较大的那个。在RichInt中。</p>
+</li>
+<li>
+<p>用BigInt计算2的1024次方。</p>
+</li>
+</ol>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BigInt</span>(<span class="number">2</span>).pow(<span class="number">1024</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>为了在使用probablePrime(100,Random)获取随机素数时不在probablePrime和Random之前使用任何限定符，你需要引入什么？</p>
+<p>要引入对应的包，Random在util下。而probablePrime在对象BigInt里。</p>
+</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> util.<span class="type">Random</span></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">import</span> math.<span class="type">BigInt</span>.probablePrime</span><br><span class="line">probablePrime(<span class="number">3</span>,<span class="type">Random</span>)</span><br><span class="line"><span class="comment">//res1: scala.math.BigInt = 5</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>创建随机文件的方式之一是生成一个随机的BigInt，然后将它转换成三十六进制，输出类似&quot;qsnvbevtomcj38o06kul&quot;这样的字符串。查阅Scaladoc，找到在Scala中实现该逻辑的办法。</p>
+<p>在BigInt里找到toString方法</p>
+</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">probablePrime(<span class="number">100</span>,<span class="type">Random</span>)</span><br><span class="line"><span class="comment">//res2: scala.math.BigInt = 680624836022523911868209171401</span></span><br><span class="line"></span><br><span class="line">res2.toString(<span class="number">36</span>)</span><br><span class="line"><span class="comment">//res3: String = 1tzk0mgequl6l6t2c24p</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>在Scala中如何获取字符串的首字符和尾字符？</p>
+<p>到StringOps中查找</p>
+</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; res3.head</span><br><span class="line"><span class="comment">//res4: Char = 1</span></span><br><span class="line">scala&gt; res3.last</span><br><span class="line"><span class="comment">//res6: Char = p</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//另外两种方式：</span></span><br><span class="line"></span><br><span class="line">res3(<span class="number">0</span>)</span><br><span class="line">res3.take(<span class="number">1</span>)</span><br><span class="line"><span class="comment">//获取首字符</span></span><br><span class="line">res3.reverse(<span class="number">0</span>)</span><br><span class="line">res3.takeRight(<span class="number">1</span>)</span><br><span class="line"><span class="comment">//获取尾字符</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>take,drop,takeRight和dropRight这些字符串函数是做什么用的？和substring相比，他们的优点和缺点都是哪些？</p>
+<pre><code>  查询API即可take是从字符串首开始获取字符串,drop是从字符串首开始去除字符串。takeRight和dropRight是从字符串尾开始操作。这四个方法都是单方向的。如果我想要字符串中间的子字符串，那么需要同时调用drop和dropRight，或者使用substring
+</code></pre>
+</li>
+</ul>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2015/06/22/scala/Chapter-04-Map和元组/" data-toggle="tooltip" data-placement="top" title="Chapter-04-Map和元组">&larr; 上一篇</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2010/12/26/八卦/八卦/" data-toggle="tooltip" data-placement="top" title="八卦">下一篇 &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"> Chapter-01-the-basics</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"> 命令行环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text"> EPFL命令行</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text"> IntelliJ IDEA</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"> 声明常量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text"> 声明变量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text"> 常用类型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text"> 算术和操作符</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text"> 调用函数和方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text"> apply方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text"> 使用scala doc</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.8.1.</span> <span class="toc-nav-text"> 使用技巧:</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text"> 习题</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">分类</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#scala" title="scala">scala</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>友情链接</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.ifeng.com" target="_blank"></a></li>
+                    
+                        <li><a href="https://www.baidu.com" target="_blank"></a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/allon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/allon517">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/allonli">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; allon li 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://allonli.com">AllonLi</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=allonli&repo=hexo-theme-beantech&type=star&count=false" >
+                    </iframe>
+                </p>
+            </div>
+	<br>
+	<div style="width:300px;margin:0 auto; padding:20px 0;text-align: center;">
+ <br>
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15222402007007" style="display:inline-block;text-decoration:none;height:20px;line-height: 14px;"><br><img src="/img/beian.png" style="float:left;width:13px; height:13px;"><p style="float:left;height:13px;line-height:13px;margin: 0px 0px 0px 5px;font-size:13px; color:#939393;text-align: center;">蒙公网安备 15222402007007号</p></a> 
+        </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://www.allonli.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'www.allonli.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<!--<img src="https://www.allonli.com/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -1,21 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://www.allonli.com</loc>
+        <loc>https://www.allonli.com</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/12/26/%E5%85%AB%E5%8D%A6/</loc>
-        <lastmod>2017-12-26T05:27:54.281Z</lastmod>
+        <loc>https://www.allonli.com/2018/03/25/%E4%B9%A6%E6%B3%95/%E4%B9%A6%E6%B3%95-%E6%A8%AA%E7%AB%96%E6%92%87%E6%8D%BA/</loc>
+        <lastmod>2018-05-04T01:43:23.519Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/12/20/%E9%82%BA%E5%9F%8E%E6%B8%B8%E8%AE%B0/</loc>
+        <loc>https://www.allonli.com/2018/03/25/%E4%B9%A6%E6%B3%95/%E4%B9%A6%E6%B3%95-%E7%AC%94%E5%BF%83/</loc>
+        <lastmod>2018-05-04T01:43:12.988Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.allonli.com/2018/03/18/%E4%B9%A6%E6%B3%95/%E4%B9%A6%E6%B3%95-%E5%B0%96%E5%B3%B0%E5%92%8C%E4%BE%A7%E5%B3%B0/</loc>
+        <lastmod>2018-05-04T01:43:07.742Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.allonli.com/2017/11/22/%E4%B9%A6%E6%B3%95/%E4%B9%A6%E6%B3%95-%E5%B7%A5%E5%85%B7/</loc>
+        <lastmod>2018-05-04T01:42:59.522Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.allonli.com/2017/11/22/%E4%B9%A6%E6%B3%95/%E4%B9%A6%E6%B3%95-%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/</loc>
+        <lastmod>2018-05-04T01:42:55.672Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.allonli.com/2017/11/27/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91%E7%B8%BD%E8%A6%BD/</loc>
+        <lastmod>2018-03-08T03:35:10.349Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.allonli.com/2010/12/26/%E5%85%AB%E5%8D%A6/%E5%85%AB%E5%8D%A6/</loc>
+        <lastmod>2018-03-07T10:29:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.allonli.com/2018/03/07/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93079-118%E5%8D%B7-%E6%99%8B%E7%BA%AA/</loc>
+        <lastmod>2018-03-07T10:18:13.677Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.allonli.com/2017/11/21/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
+        <lastmod>2018-02-14T12:31:41.172Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.allonli.com/2017/12/20/%E6%B8%B8%E8%AE%B0/%E9%82%BA%E5%9F%8E%E6%B8%B8%E8%AE%B0/</loc>
         <lastmod>2017-12-26T03:53:37.660Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -23,15 +87,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/12/11/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93079-118%E5%8D%B7-%E6%99%8B%E7%BA%AA/</loc>
-        <lastmod>2017-12-10T02:10:37.576Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2017/12/10/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93069-078%E5%8D%B7-%E9%AD%8F%E7%BA%AA/</loc>
+        <loc>https://www.allonli.com/2017/12/10/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93069-078%E5%8D%B7-%E9%AD%8F%E7%BA%AA/</loc>
         <lastmod>2017-12-10T02:10:23.819Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -39,7 +95,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/12/09/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93009-068%E5%8D%B7-%E6%B1%89%E7%BA%AA/</loc>
+        <loc>https://www.allonli.com/2017/12/09/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93009-068%E5%8D%B7-%E6%B1%89%E7%BA%AA/</loc>
         <lastmod>2017-12-10T02:10:11.250Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -47,7 +103,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/12/08/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93006-008%E5%8D%B7-%E7%A7%A6%E7%BA%AA/</loc>
+        <loc>https://www.allonli.com/2017/12/08/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93006-008%E5%8D%B7-%E7%A7%A6%E7%BA%AA/</loc>
         <lastmod>2017-12-10T02:09:58.521Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -55,7 +111,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/12/07/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93001-005%E5%8D%B7-%E5%91%A8%E7%BA%AA/</loc>
+        <loc>https://www.allonli.com/2017/12/07/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91/%E8%B5%84%E6%B2%BB%E9%80%9A%E9%89%B4%E5%B0%8F%E7%BB%93001-005%E5%8D%B7-%E5%91%A8%E7%BA%AA/</loc>
         <lastmod>2017-12-07T09:38:29.087Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -63,23 +119,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/11/21/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
-        <lastmod>2017-12-02T01:56:49.248Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2017/11/27/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%91%E7%B8%BD%E8%A6%BD/</loc>
-        <lastmod>2017-11-27T07:40:05.182Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2017/02/22/%E7%AC%AC03%E7%AB%A0%20%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BA%A7%E8%A1%A8%E7%A4%BA/</loc>
+        <loc>https://www.allonli.com/2017/02/22/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/%E7%AC%AC03%E7%AB%A0%20%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BA%A7%E8%A1%A8%E7%A4%BA/</loc>
         <lastmod>2017-11-25T09:06:03.135Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -87,7 +127,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/02/22/%E7%AC%AC02%E7%AB%A0%20%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84%E5%92%8C%E6%89%A7%E8%A1%8C/</loc>
+        <loc>https://www.allonli.com/2017/02/22/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/%E7%AC%AC02%E7%AB%A0%20%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84%E5%92%8C%E6%89%A7%E8%A1%8C/</loc>
         <lastmod>2017-11-25T09:05:49.098Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -95,7 +135,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/02/22/%E7%AC%AC01%E7%AB%A0%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8/</loc>
+        <loc>https://www.allonli.com/2017/02/22/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/%E7%AC%AC01%E7%AB%A0%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8/</loc>
         <lastmod>2017-11-25T09:05:35.751Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -103,39 +143,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2016/02/22/chapter-04-best-practices-for-memory/</loc>
-        <lastmod>2017-11-25T06:38:21.372Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2016/02/22/chapter-02-sharing-and-multimedia/</loc>
-        <lastmod>2017-11-25T06:38:21.371Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2016/02/22/chapter-03-bitmap-and-background-threads/</loc>
-        <lastmod>2017-11-25T06:38:21.371Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2016/02/22/chapter-01-getting-started/</loc>
-        <lastmod>2017-11-25T06:38:21.371Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-10-%E7%89%B9%E8%B4%A8/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-10-%E7%89%B9%E8%B4%A8/</loc>
         <lastmod>2017-11-25T06:28:50.497Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -143,7 +151,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-11-operators/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-11-operators/</loc>
         <lastmod>2017-11-25T06:28:50.497Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -151,7 +159,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-06-%E5%AF%B9%E8%B1%A1/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-06-%E5%AF%B9%E8%B1%A1/</loc>
         <lastmod>2017-11-25T06:28:50.496Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -159,7 +167,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-07-%E5%8C%85%E5%92%8C%E5%BC%95%E5%85%A5/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-07-%E5%8C%85%E5%92%8C%E5%BC%95%E5%85%A5/</loc>
         <lastmod>2017-11-25T06:28:50.496Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -167,7 +175,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-08-%E7%BB%A7%E6%89%BF/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-08-%E7%BB%A7%E6%89%BF/</loc>
         <lastmod>2017-11-25T06:28:50.496Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -175,7 +183,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-09-%E6%96%87%E4%BB%B6%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-09-%E6%96%87%E4%BB%B6%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
         <lastmod>2017-11-25T06:28:50.496Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -183,7 +191,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-02-control-structures-and-functions/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-02-control-structures-and-functions/</loc>
         <lastmod>2017-11-25T06:28:50.495Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -191,7 +199,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-03-working-with-arrays/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-03-working-with-arrays/</loc>
         <lastmod>2017-11-25T06:28:50.495Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -199,7 +207,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-04-Map%E5%92%8C%E5%85%83%E7%BB%84/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-04-Map%E5%92%8C%E5%85%83%E7%BB%84/</loc>
         <lastmod>2017-11-25T06:28:50.495Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -207,7 +215,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-05-%E7%B1%BB/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-05-%E7%B1%BB/</loc>
         <lastmod>2017-11-25T06:28:50.495Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -215,7 +223,7 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2015/06/22/Chapter-01-the-basics/</loc>
+        <loc>https://www.allonli.com/2015/06/22/scala/Chapter-01-the-basics/</loc>
         <lastmod>2017-11-25T06:28:50.494Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -223,24 +231,8 @@
     </url>
 
     <url>
-        <loc>http://www.allonli.com/2017/11/22/%E5%BE%AE%E7%A7%AF%E5%88%86/</loc>
+        <loc>https://www.allonli.com/2017/11/22/%E6%95%B0%E5%AD%A6/%E5%BE%AE%E7%A7%AF%E5%88%86/</loc>
         <lastmod>2017-11-22T10:40:40.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2017/11/22/%E4%B9%A6%E6%B3%95%E5%B7%A5%E5%85%B7/</loc>
-        <lastmod>2017-11-22T10:40:27.243Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.allonli.com/2017/11/22/%E4%B9%A6%E6%B3%95%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/</loc>
-        <lastmod>2017-11-22T10:40:14.149Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

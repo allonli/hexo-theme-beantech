@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://www.allonli.com/archives/3/">
+    <link rel="canonical" href="https://www.allonli.com/archives/3/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -208,180 +208,7 @@
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-02-control-structures-and-functions/">
-        <h2 class="post-title">
-            Chapter-02-control-structures-and-functions
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-02-control-structures-and-functions
-函数 控制结构 异常
-
- 条件表达式
-scala里的if/else是有值的，返回的值就是那个表达式的值。如果if语句的条件为false没有进入语句块，那么该if表达式的值为Unit(含义接近void，和void的区别是：void是空的钱包，Unit是钱包里一张写着“没钱”的纸币)，写做()。
-scala......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/Chapter-09-文件和正则表达式/">
-        <h2 class="post-title">
-            Chapter-09-文件和正则表达式
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-09-文件和正则表达式
-file 文件 正则表达式 Regular expression
-
- 读取行
-123456import scala.io.Sourceval source = Source.fromFile("myfile.txt", "UTF-8")val iterator = source.getLines //获取Iterator[String]for(l &......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/Chapter-08-继承/">
-        <h2 class="post-title">
-            Chapter-08-继承
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-08-继承
-extends 继承
-
- 继承类
-123class Employee extends Person &#123;    var salary = 0.0&#125;
-和java不同的是，java中的final是不可变的。而scala中的final var是可以修改的，只是不能被继承。final val才相当于java的final。
-123456789class ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/Chapter-10-特质/">
-        <h2 class="post-title">
-            Chapter-10-特质
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-10-特质
-特质 trait 接口 interface
-
- 当做接口使用的特质
-特质的部分功能和java中的接口十分类似。例如：
-1234567trait Logger &#123;    def log(msg: String) //这个是抽象方法，不要写abstract，特质中默认未实现的方法就是抽象的。&#125;class ConsoleLogger extends......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/Chapter-11-operators/">
-        <h2 class="post-title">
-            Chapter-11-operators
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-11-operators
-操作符
-
- 标识符和操作符
-变量、函数、类等名称统称为标识符。在scala中的标识符，一般不跟关键字冲突，几乎所有的Unicode字符都可以。
-在scala中，很多时候操作符实际上是函数名，所以标识符和操作符这两个概念差别不大。
-常见的赋值操作符
-a 操作符= b
-等价于： a = a 操作符 b
-
-
- infix（中置）
-a 标识符 b
-如 1 ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/Chapter-07-包和引入/">
+    <a href="/2015/06/22/scala/Chapter-07-包和引入/">
         <h2 class="post-title">
             Chapter-07-包和引入
         </h2>
@@ -414,7 +241,111 @@ scala中的包和C++的命名空间和java中的包概念是相同的，只不�
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-06-对象/">
+    <a href="/2015/06/22/scala/Chapter-10-特质/">
+        <h2 class="post-title">
+            Chapter-10-特质
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-10-特质
+特质 trait 接口 interface
+
+ 当做接口使用的特质
+特质的部分功能和java中的接口十分类似。例如：
+1234567trait Logger &#123;    def log(msg: String) //这个是抽象方法，不要写abstract，特质中默认未实现的方法就是抽象的。&#125;class ConsoleLogger extends......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-05-类/">
+        <h2 class="post-title">
+            Chapter-05-类
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-05-类
+类 class
+
+ 简单类和无参方法
+scala中的类简单的和java相似，主要设计和习惯区别是：
+
+scala类中的方法默认为public的
+字段必须初始化
+类只有public的，所以不声明public关键字了（经常一个scala源文件会包含很多个类）
+
+123456789class Counter &#123;    private var value = 0......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-02-control-structures-and-functions/">
+        <h2 class="post-title">
+            Chapter-02-control-structures-and-functions
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-02-control-structures-and-functions
+函数 控制结构 异常
+
+ 条件表达式
+scala里的if/else是有值的，返回的值就是那个表达式的值。如果if语句的条件为false没有进入语句块，那么该if表达式的值为Unit(含义接近void，和void的区别是：void是空的钱包，Unit是钱包里一张写着“没钱”的纸币)，写做()。
+scala......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-06-对象/">
         <h2 class="post-title">
             Chapter-06-对象
         </h2>
@@ -447,7 +378,39 @@ scala中没有静态方法和字段。只要的功效可以用object语法来实
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-04-Map和元组/">
+    <a href="/2015/06/22/scala/Chapter-03-working-with-arrays/">
+        <h2 class="post-title">
+            Chapter-03-working-with-arrays
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-03-working-with-arrays
+数组
+
+ 定长数组
+12345678val nums = new Array[Int](10)//初始化10整数的数组，所有元素初始化为0val strs = new Array[String](10)//10个值为nullval s = Array("Hello", "Allon")//Array对象的apply方法s(0) ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-04-Map和元组/">
         <h2 class="post-title">
             Chapter-04-Map和元组
         </h2>
@@ -480,39 +443,7 @@ scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/Chapter-03-working-with-arrays/">
-        <h2 class="post-title">
-            Chapter-03-working-with-arrays
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-03-working-with-arrays
-数组
-
- 定长数组
-12345678val nums = new Array[Int](10)//初始化10整数的数组，所有元素初始化为0val strs = new Array[String](10)//10个值为nullval s = Array("Hello", "Allon")//Array对象的apply方法s(0) ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/Chapter-01-the-basics/">
+    <a href="/2015/06/22/scala/Chapter-01-the-basics/">
         <h2 class="post-title">
             Chapter-01-the-basics
         </h2>
@@ -541,6 +472,56 @@ scala 基础
         <div class="tags">
             
               <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2010/12/26/八卦/八卦/">
+        <h2 class="post-title">
+            八卦
+        </h2>
+        <h3 class="post-subtitle">
+            八卦五行，天干地支，演绎天地万物
+        </h3>
+        <div class="post-content-preview">
+             八卦
+
+
+乾三连
+坤六断
+震仰盂
+艮覆碗
+离中虚
+坎中满
+兑上缺
+巽下断
+
+
+六爻之动，三极之道也：三极就是天地人三才，人有男女，亦即有阴阳，三才有阴阳相对，三二得六。
+
+六爻卦：上三爻为外挂，下三爻为内挂，自下而上画卦，说明宇宙事物的变，是内在开始变。
+
+ 六十四卦：
+
+乾为天，天风姤，天山遁，天地否
+风地观，山地剥，火地晋，火天大有
+坎为水，水泽节，水雷屯，水火既济
+泽火革，雷火丰，地......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2010-12-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#八卦" title="八卦">八卦</a>
             
         </div>
     
@@ -585,13 +566,9 @@ scala 基础
             
         
             
-            <a href="/tags/#android" title="android" rel="4">android</a>
+            <a href="/tags/#书法" title="书法" rel="5">书法</a>
             
         
-            
-        
-            
-            <a href="/tags/#书法" title="书法" rel="2">书法</a>
             
         
             
@@ -603,9 +580,9 @@ scala 基础
             
         
             
-            <a href="/tags/#資治通鑑" title="資治通鑑" rel="6">資治通鑑</a>
-            
         
+            
+            <a href="/tags/#資治通鑑" title="資治通鑑" rel="6">資治通鑑</a>
             
         
     </div>
@@ -624,7 +601,7 @@ scala 基础
         
 
         
-            <p>Hi, i&#39;m allon li</p>
+            <p>百度资深工程师</p>
         
 
         <!-- SNS Link -->
@@ -680,23 +657,23 @@ scala 基础
     <ul>
       
         <li>
-          <a href="/2017/12/26/八卦/">八卦</a>
+          <a href="/2018/03/25/书法/书法-横竖撇捺/">书法 - 横竖</a>
         </li>
       
         <li>
-          <a href="/2017/12/20/邺城游记/">邺城游记</a>
+          <a href="/2018/03/25/书法/书法-笔心/">书法 - 笔心</a>
         </li>
       
         <li>
-          <a href="/2017/12/11/资治通鉴小结079-118卷-晋纪/">资治通鉴小结079-118卷晋纪</a>
+          <a href="/2018/03/18/书法/书法-尖峰和侧峰/">书法 - 尖锋和侧锋</a>
         </li>
       
         <li>
-          <a href="/2017/12/10/资治通鉴小结069-078卷-魏纪/">资治通鉴小结069-078卷魏纪</a>
+          <a href="/2018/03/07/資治通鑑/资治通鉴小结079-118卷-晋纪/">资治通鉴小结079-118卷晋纪</a>
         </li>
       
         <li>
-          <a href="/2017/12/09/资治通鉴小结009-068卷-汉纪/">资治通鉴小结009-068卷汉纪</a>
+          <a href="/2017/12/20/游记/邺城游记/">邺城游记</a>
         </li>
       
     </ul>
@@ -707,13 +684,15 @@ scala 基础
     
         <!-- Friends Blog -->
 
-<h5>博客</h5>
+<h5>Github</h5>
 <ul class="list-inline">
 
+    <iframe src="https://githubbadge.appspot.com/allonli" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+
     
-        <li><a href="https://allonli.github.io" target="_blank">blogs</a></li>
+        <li><a href="http://www.ifeng.com" target="_blank"></a></li>
     
-        <li><a href="http://www.allonli.com" target="_blank">allonli.com</a></li>
+        <li><a href="https://www.baidu.com" target="_blank"></a></li>
     
 </ul>
 
@@ -723,7 +702,7 @@ scala 基础
         
     <h5>文章</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">十二月 2010</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
 
@@ -788,7 +767,7 @@ scala 基础
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; allon li 2017 
+                    Copyright &copy; allon li 2018 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
@@ -802,6 +781,11 @@ scala 基础
                     </iframe>
                 </p>
             </div>
+	<br>
+	<div style="width:300px;margin:0 auto; padding:20px 0;text-align: center;">
+ <br>
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15222402007007" style="display:inline-block;text-decoration:none;height:20px;line-height: 14px;"><br><img src="/img/beian.png" style="float:left;width:13px; height:13px;"><p style="float:left;height:13px;line-height:13px;margin: 0px 0px 0px 5px;font-size:13px; color:#939393;text-align: center;">蒙公网安备 15222402007007号</p></a> 
+        </div>
         </div>
     </div>
 </footer>
@@ -851,7 +835,7 @@ scala 基础
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://www.allonli.com/js/jquery.tagcloud.js",function(){
+        async("https://www.allonli.com/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -899,7 +883,7 @@ scala 基础
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://www.allonli.com/img/icon_wechat.png" width="0" height="0" />
+<!--<img src="https://www.allonli.com/img/icon_wechat.png" width="0" height="0" />-->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
