@@ -208,110 +208,6 @@
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/scala/Chapter-07-包和引入/">
-        <h2 class="post-title">
-            Chapter-07-包和引入
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-07-包和引入
-包 引入 import package
-
- 包
-scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
-1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/scala/Chapter-10-特质/">
-        <h2 class="post-title">
-            Chapter-10-特质
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-10-特质
-特质 trait 接口 interface
-
- 当做接口使用的特质
-特质的部分功能和java中的接口十分类似。例如：
-1234567trait Logger &#123;    def log(msg: String) //这个是抽象方法，不要写abstract，特质中默认未实现的方法就是抽象的。&#125;class ConsoleLogger extends......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/scala/Chapter-05-类/">
-        <h2 class="post-title">
-            Chapter-05-类
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-05-类
-类 class
-
- 简单类和无参方法
-scala中的类简单的和java相似，主要设计和习惯区别是：
-
-scala类中的方法默认为public的
-字段必须初始化
-类只有public的，所以不声明public关键字了（经常一个scala源文件会包含很多个类）
-
-123456789class Counter &#123;    private var value = 0......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2015/06/22/scala/Chapter-02-control-structures-and-functions/">
         <h2 class="post-title">
             Chapter-02-control-structures-and-functions
@@ -326,39 +222,6 @@ scala类中的方法默认为public的
  条件表达式
 scala里的if/else是有值的，返回的值就是那个表达式的值。如果if语句的条件为false没有进入语句块，那么该if表达式的值为Unit(含义接近void，和void的区别是：void是空的钱包，Unit是钱包里一张写着“没钱”的纸币)，写做()。
 scala......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/scala/Chapter-06-对象/">
-        <h2 class="post-title">
-            Chapter-06-对象
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-06-对象
-对象 object
-
- 单例对象
-scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
-123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
         </div>
     </a>
     
@@ -443,6 +306,77 @@ scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
 
 <div class="post-preview">
 
+    <a href="/2015/06/22/scala/Chapter-05-类/">
+        <h2 class="post-title">
+            Chapter-05-类
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-05-类
+类 class
+
+ 简单类和无参方法
+scala中的类简单的和java相似，主要设计和习惯区别是：
+
+scala类中的方法默认为public的
+字段必须初始化
+类只有public的，所以不声明public关键字了（经常一个scala源文件会包含很多个类）
+
+123456789class Counter &#123;    private var value = 0......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-10-特质/">
+        <h2 class="post-title">
+            Chapter-10-特质
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-10-特质
+特质 trait 接口 interface
+
+ 当做接口使用的特质
+特质的部分功能和java中的接口十分类似。例如：
+1234567trait Logger &#123;    def log(msg: String) //这个是抽象方法，不要写abstract，特质中默认未实现的方法就是抽象的。&#125;class ConsoleLogger extends......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2015/06/22/scala/Chapter-01-the-basics/">
         <h2 class="post-title">
             Chapter-01-the-basics
@@ -462,6 +396,72 @@ scala 基础
 3.执行scala命令
 
  Int......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-07-包和引入/">
+        <h2 class="post-title">
+            Chapter-07-包和引入
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-07-包和引入
+包 引入 import package
+
+ 包
+scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
+1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-06-对象/">
+        <h2 class="post-title">
+            Chapter-06-对象
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-06-对象
+对象 object
+
+ 单例对象
+scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
+123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
         </div>
     </a>
     
@@ -687,8 +687,11 @@ scala 基础
 <h5>Github</h5>
 <ul class="list-inline">
 
-    <iframe src="https://githubbadge.appspot.com/allonli" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
-
+<li><a href="https://github.com/allonli" target="_blank">allonli github</a></li>
+<li><a href="https://github.com/allonli" target="_blank">allonli github</a></li>
+<!--    
+<iframe src="https://githubbadge.appspot.com/allonli" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+-->
     
         <li><a href="http://www.ifeng.com" target="_blank"></a></li>
     

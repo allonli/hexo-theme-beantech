@@ -3,8 +3,11 @@
 <h5>Github</h5>
 <ul class="list-inline">
 
-    <iframe src="https://githubbadge.appspot.com/allonli" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
-
+<div class="github-card" data-github="PaddlePaddle/paddle-mobile" data-width="300" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+<!--    
+<iframe src="https://githubbadge.appspot.com/allonli" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+-->
     <% config.friends.forEach(function(friend){ %>
         <li><a href="<%= friend.href %>" target="_blank"><%= friend.title %></a></li>
     <% }); %>
