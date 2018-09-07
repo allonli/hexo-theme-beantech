@@ -92,7 +92,7 @@
                     <div class="site-heading">
                         <h1>李郞小汇</h1>
                         <!--<hr class="small">-->
-                        <span class="subheading">I would rather die of passion than of boredom.</span>
+                        <span class="subheading">功崇惟志 业广惟勤</span>
                     </div>
                 
 
@@ -208,20 +208,28 @@
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/scala/Chapter-02-control-structures-and-functions/">
+    <a href="/2015/06/22/scala/Chapter-11-operators/">
         <h2 class="post-title">
-            Chapter-02-control-structures-and-functions
+            Chapter-11-operators
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-02-control-structures-and-functions
-函数 控制结构 异常
+             Chapter-11-operators
+操作符
 
- 条件表达式
-scala里的if/else是有值的，返回的值就是那个表达式的值。如果if语句的条件为false没有进入语句块，那么该if表达式的值为Unit(含义接近void，和void的区别是：void是空的钱包，Unit是钱包里一张写着“没钱”的纸币)，写做()。
-scala......
+ 标识符和操作符
+变量、函数、类等名称统称为标识符。在scala中的标识符，一般不跟关键字冲突，几乎所有的Unicode字符都可以。
+在scala中，很多时候操作符实际上是函数名，所以标识符和操作符这两个概念差别不大。
+常见的赋值操作符
+a 操作符= b
+等价于： a = a 操作符 b
+
+
+ infix（中置）
+a 标识符 b
+如 1 ......
         </div>
     </a>
     
@@ -241,19 +249,20 @@ scala......
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/scala/Chapter-03-working-with-arrays/">
+    <a href="/2015/06/22/scala/Chapter-07-包和引入/">
         <h2 class="post-title">
-            Chapter-03-working-with-arrays
+            Chapter-07-包和引入
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-03-working-with-arrays
-数组
+             Chapter-07-包和引入
+包 引入 import package
 
- 定长数组
-12345678val nums = new Array[Int](10)//初始化10整数的数组，所有元素初始化为0val strs = new Array[String](10)//10个值为nullval s = Array("Hello", "Allon")//Array对象的apply方法s(0) ......
+ 包
+scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
+1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
         </div>
     </a>
     
@@ -273,20 +282,20 @@ scala......
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/scala/Chapter-04-Map和元组/">
+    <a href="/2015/06/22/scala/Chapter-10-特质/">
         <h2 class="post-title">
-            Chapter-04-Map和元组
+            Chapter-10-特质
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-04-Map和元组
-Map 映射 元组
+             Chapter-10-特质
+特质 trait 接口 interface
 
- 创建Map并取值
-scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
-12345val map = Map("Allon" -&gt; 29, "Jerry" -&gt; 18, "Karen" -&gt; 54 )map("Allon")//返回29map("Allon") = 30//会报错，因为这个Map默......
+ 当做接口使用的特质
+特质的部分功能和java中的接口十分类似。例如：
+1234567trait Logger &#123;    def log(msg: String) //这个是抽象方法，不要写abstract，特质中默认未实现的方法就是抽象的。&#125;class ConsoleLogger extends......
         </div>
     </a>
     
@@ -344,20 +353,53 @@ scala类中的方法默认为public的
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/scala/Chapter-10-特质/">
+    <a href="/2015/06/22/scala/Chapter-04-Map和元组/">
         <h2 class="post-title">
-            Chapter-10-特质
+            Chapter-04-Map和元组
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-10-特质
-特质 trait 接口 interface
+             Chapter-04-Map和元组
+Map 映射 元组
 
- 当做接口使用的特质
-特质的部分功能和java中的接口十分类似。例如：
-1234567trait Logger &#123;    def log(msg: String) //这个是抽象方法，不要写abstract，特质中默认未实现的方法就是抽象的。&#125;class ConsoleLogger extends......
+ 创建Map并取值
+scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
+12345val map = Map("Allon" -&gt; 29, "Jerry" -&gt; 18, "Karen" -&gt; 54 )map("Allon")//返回29map("Allon") = 30//会报错，因为这个Map默......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-02-control-structures-and-functions/">
+        <h2 class="post-title">
+            Chapter-02-control-structures-and-functions
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-02-control-structures-and-functions
+函数 控制结构 异常
+
+ 条件表达式
+scala里的if/else是有值的，返回的值就是那个表达式的值。如果if语句的条件为false没有进入语句块，那么该if表达式的值为Unit(含义接近void，和void的区别是：void是空的钱包，Unit是钱包里一张写着“没钱”的纸币)，写做()。
+scala......
         </div>
     </a>
     
@@ -413,122 +455,6 @@ scala 基础
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2015/06/22/scala/Chapter-07-包和引入/">
-        <h2 class="post-title">
-            Chapter-07-包和引入
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-07-包和引入
-包 引入 import package
-
- 包
-scala中的包和C++的命名空间和java中的包概念是相同的，只不过它和目录没有直接关系，是一个虚拟的关系，在代码中定义。
-1234567package com &#123;  package horstmann &#123;    package  impatient &#123;      class E......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/06/22/scala/Chapter-06-对象/">
-        <h2 class="post-title">
-            Chapter-06-对象
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             Chapter-06-对象
-对象 object
-
- 单例对象
-scala中没有静态方法和字段。只要的功效可以用object语法来实现。(object定义其实就是具体某个类的单例)
-123456789object Accounts &#123;    private var lastNumber = 0    def newUniqueNumber() = &#123; lastNumber......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2015-06-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#scala" title="scala">scala</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2010/12/26/八卦/八卦/">
-        <h2 class="post-title">
-            八卦
-        </h2>
-        <h3 class="post-subtitle">
-            八卦五行，天干地支，演绎天地万物
-        </h3>
-        <div class="post-content-preview">
-             八卦
-
-
-乾三连
-坤六断
-震仰盂
-艮覆碗
-离中虚
-坎中满
-兑上缺
-巽下断
-
-
-六爻之动，三极之道也：三极就是天地人三才，人有男女，亦即有阴阳，三才有阴阳相对，三二得六。
-
-六爻卦：上三爻为外挂，下三爻为内挂，自下而上画卦，说明宇宙事物的变，是内在开始变。
-
- 六十四卦：
-
-乾为天，天风姤，天山遁，天地否
-风地观，山地剥，火地晋，火天大有
-坎为水，水泽节，水雷屯，水火既济
-泽火革，雷火丰，地......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2010-12-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#八卦" title="八卦">八卦</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -570,15 +496,11 @@ scala中没有静态方法和字段。只要的功效可以用object语法来实
             
         
             
-        
-            
             <a href="/tags/#数学" title="数学" rel="2">数学</a>
             
         
             
             <a href="/tags/#深入理解计算机系统" title="深入理解计算机系统" rel="3">深入理解计算机系统</a>
-            
-        
             
         
             
@@ -673,7 +595,7 @@ scala中没有静态方法和字段。只要的功效可以用object语法来实
         </li>
       
         <li>
-          <a href="/2017/12/20/游记/邺城游记/">邺城游记</a>
+          <a href="/2017/12/10/資治通鑑/资治通鉴小结069-078卷-魏纪/">资治通鉴小结069-078卷魏纪</a>
         </li>
       
     </ul>
@@ -687,8 +609,8 @@ scala中没有静态方法和字段。只要的功效可以用object语法来实
 <h5>Github</h5>
 <ul class="list-inline">
 
-<li><a href="https://github.com/allonli" target="_blank">allonli github</a></li>
-<li><a href="https://github.com/allonli" target="_blank">allonli github</a></li>
+<div class="github-card" data-github="PaddlePaddle/paddle-mobile" data-width="300" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 <!--    
 <iframe src="https://githubbadge.appspot.com/allonli" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
 -->
@@ -705,7 +627,7 @@ scala中没有静态方法和字段。只要的功效可以用object语法来实
         
     <h5>文章</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">十二月 2010</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">11</span></li></ul>
     </div>
 
 

@@ -8,21 +8,21 @@
     
     <url>
         <loc>https://www.allonli.com/tags/</loc>
-        <lastmod>2018-06-07T14:00:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://www.allonli.com/about/</loc>
-        <lastmod>2018-06-07T14:00:24.000Z</lastmod>
+        <lastmod>2018-07-07T01:00:12.283Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.allonli.com/archive/</loc>
-        <lastmod>2018-06-07T14:00:24.000Z</lastmod>
+        <lastmod>2018-07-07T01:00:12.205Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.allonli.com/about/</loc>
+        <lastmod>2018-07-07T01:00:12.204Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
