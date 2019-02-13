@@ -142,6 +142,12 @@
                     
                         
                         <li>
+                            <a href="/archive/">文章</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
                             <a href="/about/">关于</a>
                         </li>
                         
@@ -149,12 +155,6 @@
                         
                         <li>
                             <a href="/tags/">分类</a>
-                        </li>
-                        
-                    
-                        
-                        <li>
-                            <a href="/archive/">文章</a>
                         </li>
                         
                     
@@ -209,10 +209,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2><span id="chapter-11-operators">Chapter-11-operators</span></h2>
+                <h2><span id="chapter-11-operators"> Chapter-11-operators</span></h2>
 <p>操作符</p>
 <hr>
-<h3><span id="标识符和操作符">标识符和操作符</span></h3>
+<h3><span id="标识符和操作符"> 标识符和操作符</span></h3>
 <p>变量、函数、类等名称统称为标识符。在scala中的标识符，一般不跟关键字冲突，几乎所有的Unicode字符都可以。</p>
 <p>在scala中，很多时候操作符实际上是函数名，所以标识符和操作符这两个概念差别不大。</p>
 <p>常见的赋值操作符</p>
@@ -220,13 +220,13 @@
 等价于： a = a 操作符 b
 </code></pre>
 <hr>
-<h3><span id="infix中置">infix（中置）</span></h3>
+<h3><span id="infix中置"> infix（中置）</span></h3>
 <pre><code>a 标识符 b
 如 1 to 10
 </code></pre>
 <p>这样的标识符在两个参数之间的表达式叫infix表达式（中置表达式）</p>
 <hr>
-<h3><span id="postfix和perfix-后置和前置">postfix和perfix (后置和前置)</span></h3>
+<h3><span id="postfix和perfix-后置和前置"> postfix和perfix (后置和前置)</span></h3>
 <p>后置和前置表达式都一元的，就是只有一个参数。中置由于有两个参数，所以叫二元表达式。（承自haskell同样的概念）</p>
 <p>若标识符在后面，就叫后置。反之叫前置。<br>
 a 标识符 // 后置<br>
@@ -237,7 +237,7 @@ a 中置操作符 b 后置操作符<br>
 上述代码等同于：<br>
 (a 中置操作符 b) 后置操作符</p>
 <hr>
-<h3><span id="左结合和右结合">左结合和右结合</span></h3>
+<h3><span id="左结合和右结合"> 左结合和右结合</span></h3>
 <p>在优先级相同时，scala中的表达式默认是左结合，就是从左边向右开始计算。以下两种方式为右结合：</p>
 <ul>
 <li>以冒号（:）结尾的操作符</li>
@@ -248,7 +248,7 @@ a 中置操作符 b 后置操作符<br>
 <p>右结合的二元操作符其实是第二个参数的方法：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> :: <span class="type">Nil</span></span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="type">Nil</span>.::(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <hr>
-<h3><span id="apply和update方法">apply和update方法</span></h3>
+<h3><span id="apply和update方法"> apply和update方法</span></h3>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(arg1, arg2, ...)</span><br><span class="line">f(arg1, arg2, ...) = value</span><br></pre></td></tr></table></figure>
 <p>如果f不是函数，那么上面的代码实际上调用的是apply和update方法：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f.apply(arg1, arg2, ...) <span class="comment">//如果f不是函数，这行代码与f(arg1, arg2, ...)等价</span></span><br><span class="line">f.update(arg1, arg2, ..., value) <span class="comment">// 如果f不是函数，这行代码与f(arg1, arg2, ...) = value等价</span></span><br></pre></td></tr></table></figure>
@@ -257,7 +257,7 @@ a 中置操作符 b 后置操作符<br>
 <p>同时，如之前章节提到的伴生对象，也是使用的这种方式：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fraction</span>(<span class="params">n: <span class="type">Int</span>, d: <span class="type">Int</span></span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">object</span> <span class="title">Fraction</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">apply</span></span>(n: <span class="type">Int</span>, d: <span class="type">Int</span>) = <span class="keyword">new</span> <span class="type">Fraction</span>(n, d)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3><span id="提取器">提取器</span></h3>
+<h3><span id="提取器"> 提取器</span></h3>
 <p>顾名思义，unapply是反向apply。它接受一个对象，反解成具体的值。这种方式叫提取器（Extractor）。</p>
 <p>scala有三种提取器：</p>
 <ul>
@@ -265,7 +265,7 @@ a 中置操作符 b 后置操作符<br>
 <li><strong>def unapply(object: S): Option[T]</strong></li>
 <li><strong>def unapply(object: S): Boolean</strong></li>
 </ul>
-<h4><span id="第一种提取器def-unapplyobject-s-optiont1-tn">第一种提取器：def unapply(object: S): Option[(T1, …, Tn)]</span></h4>
+<h4><span id="第一种提取器def-unapplyobject-s-optiont1-tn"> 第一种提取器：def unapply(object: S): Option[(T1, …, Tn)]</span></h4>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fraction</span>(<span class="params">n: <span class="type">Int</span>, d: <span class="type">Int</span></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">*</span></span>(f: <span class="type">Fraction</span>): <span class="type">Fraction</span> = <span class="type">Fraction</span>(n * f.n, d * f.d)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">Fraction</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">apply</span></span>(n: <span class="type">Int</span>, d: <span class="type">Int</span>) = <span class="keyword">new</span> <span class="type">Fraction</span>(n, d)</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">unapply</span></span>(input: <span class="type">Fraction</span>) = <span class="keyword">if</span> (input.d == <span class="number">0</span>) <span class="type">None</span> <span class="keyword">else</span> <span class="type">Some</span>((input.n, input.d, input.hashcode))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="type">Fraction</span>(a, b, c) = <span class="type">Fraction</span>(<span class="number">3</span>, <span class="number">4</span>) * <span class="type">Fraction</span>(<span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line">println(<span class="string">"a:"</span> + a + <span class="string">", b:"</span> + b + <span class="string">", c:"</span> + c)</span><br><span class="line"><span class="comment">//输出a:6, b:20, c:586617651</span></span><br></pre></td></tr></table></figure>
 <p>unapply反回一个Option，它包含一个元组。里面可以放一些值进去。<br>
 注意它和模式匹配（后面会讲）有点像，但是实际上不相同：</p>
@@ -275,16 +275,16 @@ a 中置操作符 b 后置操作符<br>
 <p>每个case class（在后面会讲）默认会配备一对apply和unapply</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Name</span>(<span class="params">first: <span class="type">String</span>, last: <span class="type">String</span></span>) </span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">val</span> <span class="title">author</span> </span>= <span class="type">Name</span>(<span class="string">"Allon"</span>,<span class="string">"Li"</span>) <span class="comment">//apply</span></span><br><span class="line"></span><br><span class="line">author <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="type">Name</span>(first, <span class="string">"Li"</span>) =&gt; println(<span class="string">"the first name : "</span> + first) <span class="comment">// Name.unapply(author) ,这行代码表示：last name 必须为"Li"的人才能匹配成功。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>scala中没有一个元素的元组，如果要用unapply提取单个值，要指定它的返回值类型为Option的泛型。那就用到了，第二种提取器。如下：</p>
-<h4><span id="第二种提取器def-unapplyobject-s-optiont">第二种提取器：def unapply(object: S): Option[T]</span></h4>
+<h4><span id="第二种提取器def-unapplyobject-s-optiont"> 第二种提取器：def unapply(object: S): Option[T]</span></h4>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">unapply</span></span>(input: <span class="type">String</span>): <span class="type">Option</span>[<span class="type">Int</span>] =</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">Some</span>(<span class="type">Integer</span>.parseInt(input.trim))</span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> ex: <span class="type">NumberFormatException</span> =&gt; <span class="type">None</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> <span class="type">Number</span>(n) = <span class="string">"1729"</span></span><br></pre></td></tr></table></figure>
 <p>也可以用于测试输入，但不提取值。这时，unapply返回Boolean。这要就用到了第三种提取器：</p>
-<h4><span id="第三种提取器def-unapplyobject-s-boolean">第三种提取器：def unapply(object: S): Boolean</span></h4>
+<h4><span id="第三种提取器def-unapplyobject-s-boolean"> 第三种提取器：def unapply(object: S): Boolean</span></h4>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">IsCompound</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">unapply</span></span>(input: <span class="type">String</span>) = input.contains(<span class="string">" "</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">author <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="type">IsCompound</span>() =&gt; println(<span class="string">"is compound"</span>) <span class="comment">//IsCompound()里的()不能省</span></span><br><span class="line">  <span class="keyword">case</span> _ =&gt; println(<span class="string">"..."</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>在使用case时，对于返回Option的提取器，如果调用unapply方法成功返回Some，就算是成功。对于返回Boolean的提取器，如果调用unapply方法返回true，那就是匹配成功。</strong></p>
 <p>同样可以把第一种和第三种提取器结合，就像以下代码：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">author <span class="keyword">match</span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Name</span>(first, last @ <span class="type">IsCompound</span>()) =&gt; println(<span class="string">"has a compound last name"</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Name</span>(first, last) =&gt; println(<span class="string">"don't has a compound name"</span>)</span><br><span class="line">    <span class="keyword">case</span> _ =&gt; println(<span class="string">"..."</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>上面代码中第一个case是一种复合匹配，只有当Name这个提取器匹配成功，并且提取出来的第二个变量匹配成功IsCompound()时，整个模式才会匹配成功。在这里@定义了一个变量last，把它绑定到成功匹配了IsCompound的那个值上。</p>
-<h4><span id="提取序列">提取序列</span></h4>
+<h4><span id="提取序列"> 提取序列</span></h4>
 <p>前面提到的提取器，都要固定返回值个数，也可以让提取器任意个数返回结果。这要使用unapplySeq方法。</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">Name</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">unapplySeq</span></span>(input: <span class="type">String</span>): <span class="type">Option</span>[<span class="type">Seq</span>[<span class="type">String</span>]] = &#123;</span><br><span class="line">    <span class="type">Some</span>(input.split(<span class="string">" "</span>))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">author <span class="keyword">match</span> &#123; <span class="comment">// author是unapplySeq的入参</span></span><br><span class="line">  <span class="keyword">case</span> <span class="type">Name</span>(first, <span class="string">"Li"</span>) =&gt; println(<span class="string">"the first name : "</span> + first)</span><br><span class="line">  <span class="keyword">case</span> <span class="type">Name</span>(<span class="string">"Allon"</span>, middle, <span class="string">"Li"</span>) =&gt; println(<span class="string">"the middle name : "</span> + middle)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果同时定义unapplySeq和冲突的unapply，会报错。</p>
@@ -296,7 +296,7 @@ a 中置操作符 b 后置操作符<br>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2015/06/22/scala/Chapter-06-对象/" data-toggle="tooltip" data-placement="top" title="Chapter-06-对象">&larr; 上一篇</a>
+                            <a href="/2015/06/22/scala/Chapter-07-包和引入/" data-toggle="tooltip" data-placement="top" title="Chapter-07-包和引入">&larr; 上一篇</a>
                         </li>
                     
                     
@@ -327,7 +327,7 @@ a 中置操作符 b 后置操作符<br>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Chapter-11-operators</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">标识符和操作符</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">infix（中置）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">postfix和perfix (后置和前置)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">左结合和右结合</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">apply和update方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">提取器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">第一种提取器：def unapply(object: S): Option[(T1, …, Tn)]</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.2.</span> <span class="toc-nav-text">第二种提取器：def unapply(object: S): Option[T]</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.3.</span> <span class="toc-nav-text">第三种提取器：def unapply(object: S): Boolean</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.4.</span> <span class="toc-nav-text">提取序列</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"> Chapter-11-operators</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"> 标识符和操作符</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"> infix（中置）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text"> postfix和perfix (后置和前置)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text"> 左结合和右结合</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text"> apply和update方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text"> 提取器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text"> 第一种提取器：def unapply(object: S): Option[(T1, …, Tn)]</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.2.</span> <span class="toc-nav-text"> 第二种提取器：def unapply(object: S): Option[T]</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.3.</span> <span class="toc-nav-text"> 第三种提取器：def unapply(object: S): Boolean</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.4.</span> <span class="toc-nav-text"> 提取序列</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -460,7 +460,7 @@ a 中置操作符 b 后置操作符<br>
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; allon li 2018 
+                    Copyright &copy; allon li 2019 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
