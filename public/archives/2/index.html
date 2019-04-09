@@ -134,13 +134,13 @@
                     
                         
                         <li>
-                            <a href="/archive/">文章</a>
+                            <a href="/about/">关于</a>
                         </li>
                         
                     
                         
                         <li>
-                            <a href="/about/">关于</a>
+                            <a href="/archive/">文章</a>
                         </li>
                         
                     
@@ -358,63 +358,6 @@ dydx=limΔyΔx\frac{dy}{dx} = lim\frac{\Delta{y}}{\Delta{x}}
 
 <div class="post-preview">
 
-    <a href="/2017/02/22/深入理解计算机系统/第03章 程序的机器级表示/">
-        <h2 class="post-title">
-            第03章 程序的机器级表示
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             第03章 程序的机器级表示
-Tags: 深入理解计算机系统
-[TOC]
-
- 程序编码
-汇编或者机器码能操作很多对C语言隐藏的CPU状态：
-
-
-程序计数器（PC，在x86-64中用%rip表示）给出将要执行的下一条指令。
-
-
-
-
-整数寄存器文件的16个位置
-
-
-
-
-条件寄存器（实现if、while等）
-
-
-
-
-一组向量寄存器可以存放一个或多个浮点数值。
-
-
-汇编指令或者机器码特点：
-
-
-x8......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by allon li on
-            2017-02-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#深入理解计算机系统" title="深入理解计算机系统">深入理解计算机系统</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/02/22/深入理解计算机系统/第01章 计算机系统漫游/">
         <h2 class="post-title">
             第01章 计算机系统漫游
@@ -490,30 +433,54 @@ little endian(小端）目前android和ios都采用的是little endi......
 
 <div class="post-preview">
 
-    <a href="/2015/06/22/scala/Chapter-02-control-structures-and-functions/">
+    <a href="/2017/02/22/深入理解计算机系统/第03章 程序的机器级表示/">
         <h2 class="post-title">
-            Chapter-02-control-structures-and-functions
+            第03章 程序的机器级表示
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-             Chapter-02-control-structures-and-functions
-函数 控制结构 异常
+             第03章 程序的机器级表示
+Tags: 深入理解计算机系统
+[TOC]
 
- 条件表达式
-scala里的if/else是有值的，返回的值就是那个表达式的值。如果if语句的条件为false没有进入语句块，那么该if表达式的值为Unit(含义接近void，和void的区别是：void是空的钱包，Unit是钱包里一张写着“没钱”的纸币)，写做()。
-scala......
+ 程序编码
+汇编或者机器码能操作很多对C语言隐藏的CPU状态：
+
+
+程序计数器（PC，在x86-64中用%rip表示）给出将要执行的下一条指令。
+
+
+
+
+整数寄存器文件的16个位置
+
+
+
+
+条件寄存器（实现if、while等）
+
+
+
+
+一组向量寄存器可以存放一个或多个浮点数值。
+
+
+汇编指令或者机器码特点：
+
+
+x8......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by allon li on
-            2015-06-22
+            2017-02-22
         </p>
         <div class="tags">
             
-              <a href="/tags/#scala" title="scala">scala</a>
+              <a href="/tags/#深入理解计算机系统" title="深入理解计算机系统">深入理解计算机系统</a>
             
         </div>
     
@@ -569,6 +536,39 @@ Map 映射 元组
  创建Map并取值
 scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
 12345val map = Map("Allon" -&gt; 29, "Jerry" -&gt; 18, "Karen" -&gt; 54 )map("Allon")//返回29map("Allon") = 30//会报错，因为这个Map默......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by allon li on
+            2015-06-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#scala" title="scala">scala</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2015/06/22/scala/Chapter-02-control-structures-and-functions/">
+        <h2 class="post-title">
+            Chapter-02-control-structures-and-functions
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+             Chapter-02-control-structures-and-functions
+函数 控制结构 异常
+
+ 条件表达式
+scala里的if/else是有值的，返回的值就是那个表达式的值。如果if语句的条件为false没有进入语句块，那么该if表达式的值为Unit(含义接近void，和void的区别是：void是空的钱包，Unit是钱包里一张写着“没钱”的纸币)，写做()。
+scala......
         </div>
     </a>
     
@@ -844,7 +844,7 @@ scala中的Map可以非常直观的创建，下面是创建一个不可变的Map
 	<br>
 	<div style="width:300px;margin:0 auto; padding:20px 0;text-align: center;">
  <br>
-		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15222402007007" style="display:inline-block;text-decoration:none;height:20px;line-height: 14px;"><br><img src="/img/beian.png" style="float:left;width:13px; height:13px;"><p style="float:left;height:13px;line-height:13px;margin: 0px 0px 0px 5px;font-size:13px; color:#939393;text-align: center;">蒙公网安备 15222402007007号</p></a> 
+		<a target="_blank" href="http://icp.chinaz.com/info?q=allonli.com" style="display:inline-block;text-decoration:none;height:20px;line-height: 14px;"><br><img src="/img/beian.png" style="float:left;width:13px; height:13px;"><p style="float:left;height:13px;line-height:13px;margin: 0px 0px 0px 5px;font-size:13px; color:#939393;text-align: center;">京ICP备 19014013号</p></a> 
         </div>
         </div>
     </div>
