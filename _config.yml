@@ -20,7 +20,7 @@ permalink_defaults:
 
 # Site settings
 SEOTitle: 李郞小汇 
-email: allon6@163.com
+email: allonli@163.com
 description: "汝还白汝天子，我承人乏，为中国所推，已为帝矣。"
 keyword: "李永会,李郞小汇,机器学习,移动端,GPU"
 header-img: img/19.jpg
@@ -171,7 +171,7 @@ sitemap:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/allonli/allonli.github.io.git
+  repo: git@github.com:allonli/hexo-theme-beantech.git
   branch: master
 
 #math:
